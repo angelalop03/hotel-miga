@@ -1,0 +1,434 @@
+{
+  "info": {
+    "_postman_id": "3405fd7e-1ed4-403b-8aad-d2cc01def51e",
+    "name": "Hotel miga",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50176382",
+    "_collection_link": "https://go.postman.co/collection/50176382-3405fd7e-1ed4-403b-8aad-d2cc01def51e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Extras",
+      "item": [
+        {
+          "name": "GET all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/extras/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "extras",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET by name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/extras/1/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "extras",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "/* {\r\n    \"nombre\": \"wi-fi\"\r\n} */\r\n/* {\r\n    \"nombre\": \"Televisión\"\r\n} */\r\n{\r\n    \"nombre\": \"Altavoces\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/extras/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "extras",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"wifi\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/extras/1/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "extras",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/extras/4/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "extras",
+                "4",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Habitaciones",
+      "item": [
+        {
+          "name": "GET all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/habitaciones/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "habitaciones",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET by num_habitacion",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/habitaciones/101/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "habitaciones",
+                "101",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "/* {\r\n    \"num_habitacion\": 101,\r\n    \"precio\": 39.99,\r\n    \"num_personas\": 1,\r\n    \"descripcion\": \"Fabulosa habitación con vistas al mar\",\r\n    \"extras_ids\": [1,2]\r\n} */\r\n{\r\n    \"num_habitacion\": 102,\r\n    \"precio\": 75.00,\r\n    \"num_personas\": 2,\r\n    \"descripcion\": \"Otra fabulosa habitación con vistas al mar\",\r\n    \"extras_ids\": [1]\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/habitaciones/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "habitaciones",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"extras_ids\": [1, 2]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/habitaciones/101/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "habitaciones",
+                "101",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/habitaciones/101/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "habitaciones",
+                "101",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Salas",
+      "item": [
+        {
+          "name": "GET all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/salas/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "salas",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/salas/1/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "salas",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre_sala\": \"Salón principal\",\r\n    \"precio\": 300.00,\r\n    \"personas_max\": 50,\r\n    \"descripcion\": \"Gran salón para cualquier tipo de evento.\",\r\n    \"extras_ids\": [1]\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/salas/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "salas",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"extras_ids\": [1, 2]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/salas/2/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "salas",
+                "2",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/salas/1/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "salas",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
