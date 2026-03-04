@@ -39,7 +39,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/extras/1/",
+              "raw": "http://127.0.0.1:8000/extras/:id/",
               "protocol": "http",
               "host": [
                 "127",
@@ -50,8 +50,14 @@
               "port": "8000",
               "path": [
                 "extras",
-                "1",
+                ":id",
                 ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             }
           },
@@ -104,7 +110,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/extras/1/",
+              "raw": "http://127.0.0.1:8000/extras/:id/",
               "protocol": "http",
               "host": [
                 "127",
@@ -115,8 +121,14 @@
               "port": "8000",
               "path": [
                 "extras",
-                "1",
+                ":id",
                 ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             }
           },
@@ -128,7 +140,7 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/extras/4/",
+              "raw": "http://127.0.0.1:8000/extras/:id/",
               "protocol": "http",
               "host": [
                 "127",
@@ -139,8 +151,14 @@
               "port": "8000",
               "path": [
                 "extras",
-                "4",
+                ":id",
                 ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
               ]
             }
           },
@@ -180,7 +198,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/habitaciones/101/",
+              "raw": "http://127.0.0.1:8000/habitaciones/:num_habitacion/",
               "protocol": "http",
               "host": [
                 "127",
@@ -191,8 +209,14 @@
               "port": "8000",
               "path": [
                 "habitaciones",
-                "101",
+                ":num_habitacion",
                 ""
+              ],
+              "variable": [
+                {
+                  "key": "num_habitacion",
+                  "value": "101"
+                }
               ]
             }
           },
@@ -245,7 +269,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/habitaciones/101/",
+              "raw": "http://127.0.0.1:8000/habitaciones/:num_habitacion/",
               "protocol": "http",
               "host": [
                 "127",
@@ -256,8 +280,14 @@
               "port": "8000",
               "path": [
                 "habitaciones",
-                "101",
+                ":num_habitacion",
                 ""
+              ],
+              "variable": [
+                {
+                  "key": "num_habitacion",
+                  "value": "101"
+                }
               ]
             }
           },
@@ -269,7 +299,7 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/habitaciones/101/",
+              "raw": "http://127.0.0.1:8000/habitaciones/:num_habitacion/",
               "protocol": "http",
               "host": [
                 "127",
@@ -280,8 +310,14 @@
               "port": "8000",
               "path": [
                 "habitaciones",
-                "101",
+                ":num_habitacion",
                 ""
+              ],
+              "variable": [
+                {
+                  "key": "num_habitacion",
+                  "value": "101"
+                }
               ]
             }
           },
@@ -321,7 +357,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/salas/1/",
+              "raw": "http://127.0.0.1:8000/salas/:id/",
               "protocol": "http",
               "host": [
                 "127",
@@ -332,8 +368,14 @@
               "port": "8000",
               "path": [
                 "salas",
-                "1",
+                ":id",
                 ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             }
           },
@@ -386,7 +428,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/salas/2/",
+              "raw": "http://127.0.0.1:8000/salas/:id/",
               "protocol": "http",
               "host": [
                 "127",
@@ -397,8 +439,14 @@
               "port": "8000",
               "path": [
                 "salas",
-                "2",
+                ":id",
                 ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "2"
+                }
               ]
             }
           },
@@ -410,7 +458,7 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/salas/1/",
+              "raw": "http://127.0.0.1:8000/salas/:id/",
               "protocol": "http",
               "host": [
                 "127",
@@ -421,12 +469,126 @@
               "port": "8000",
               "path": [
                 "salas",
-                "1",
+                ":id",
                 ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "2"
+                }
               ]
             }
           },
           "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reservas",
+      "item": [
+        {
+          "name": "Salas",
+          "item": [
+            {
+              "name": "get all",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/reservas/salas/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "reservas",
+                    "salas",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "post",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "/* {\r\n    \"id_sala\": 2,\r\n    \"fecha\": \"2026-03-10\",\r\n    \"horario\": \"mañana\",\r\n    \"nombre\": \"Pablo Fernández\",\r\n    \"email\": \"pablo@example.com\",\r\n    \"telefono\": \"+34 123456789\"\r\n} */\r\n{\r\n    \"id_sala\": 2,\r\n    \"fecha\": \"2026-03-10\",\r\n    \"horario\": \"mediodia\",\r\n    \"nombre\": \"Pablo Fernández\",\r\n    \"email\": \"pablo@example.com\",\r\n    \"telefono\": \"+34 123456789\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/reservas/salas/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "reservas",
+                    "salas",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "confirmar",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"estado\": \"confirmado\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/reservas/salas/:id/estado/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "reservas",
+                    "salas",
+                    ":id",
+                    "estado",
+                    ""
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
         }
       ]
     }

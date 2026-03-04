@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'corsheaders', # Solucionar cors para el frontend
     'habitacion',
     'sala',
-    'extras'
+    'extras',
+    'reservas'
 ]
 
 MIDDLEWARE = [
