@@ -5,7 +5,7 @@ from .models import ReservaSala
 from .serializer import ReservaSalaSerializer, ReservaSalaEstadoSerializer
 
 class ReservaSalaListCreateView(generics.ListCreateAPIView):
-    queryset = ReservaSala.objects.all()
+    queryset = ReservaSala.objects.select_related("id_sala").all()
     serializer_class = ReservaSalaSerializer
 
 # Endpoint que modifica el estado de la reserva de una sala mediante su id
