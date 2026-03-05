@@ -19,3 +19,8 @@ class ReservaSalaEstadoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReservaSala
         fields = ["estado"]
+
+class ReservaSalaOcupadoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ReservaSala
+        fields = ["fecha", "horario"]

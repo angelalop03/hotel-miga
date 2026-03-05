@@ -1,8 +1,11 @@
+from datetime import date
+
 from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import ReservaSala
-from .serializer import ReservaSalaSerializer, ReservaSalaEstadoSerializer
+from .serializer import ReservaSalaSerializer, ReservaSalaEstadoSerializer, ReservaSalaOcupadoSerializer
+from sala.models import Sala
 
 class ReservaSalaListCreateView(generics.ListCreateAPIView):
     queryset = ReservaSala.objects.select_related("id_sala").all()
@@ -25,5 +28,23 @@ class ReservaSalaEstadoAPIView(APIView):
             return Response(ReservaSalaSerializer(reserva).data)
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# Endpoint que devuelve las reservas confirmadas de una sala mediante su id
+class ReservaSalaOcupadoAPIView(APIView):
+    def get(self, request, id_sala):
+        sala = Sala.objects.get(id = id_sala)
+
+        if not sala:
+            return Response({'error': f'No hay salas con este id'}, status=status.HTTP_404_NOT_FOUND)
+        
+        # Obtener el dia actual
+        today = date.today()
+
+        reservas = ReservaSala.objects.filter(id_sala = sala, estado = "confirmado", fecha__gte = today)
+        serializer = ReservaSalaOcupadoSerializer(reservas, many=True)
+        
+        return Response(serializer.data)
+
+
 
 # TODO habitaciones
