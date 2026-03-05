@@ -1,4 +1,4 @@
-import useFetch from "./../hooks/useFetch";
+import useFetch from "./../../hooks/useFetch";
 import ItemReservaSala from "./ItemReservaSala"
 
 export default function GestionReservasSalas(){
