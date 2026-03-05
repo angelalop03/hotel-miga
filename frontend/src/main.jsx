@@ -5,13 +5,15 @@ import App from './App.jsx'
 import Admin from './components/admin/admin.jsx'
 import Habitaciones from './pages/Habitaciones.jsx'
 import SalasHabitaciones from "./pages/SalasHabitaciones.jsx";
+import Login from "./pages/Login.jsx"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/habitaciones", element: <Habitaciones /> },
   { path: "/salas", element: <SalasHabitaciones /> },
-  { path: "/admin", element: <Admin /> }
+  { path: "/admin", element: <Admin /> },
+  { path: "/login", element: <Login /> },
 ])
 
 createRoot(document.getElementById('root')).render(
