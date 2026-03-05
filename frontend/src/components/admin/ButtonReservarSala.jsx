@@ -6,7 +6,7 @@ export default function ButtonReservarSala({id_sala, estadoOriginal}){
     // Función para enviar la confirmación o cancelación al backend
     const enviarConfirmacion = (nuevoEstado) => async () => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/reservas/salas/${id_sala}/estado/`, {
+            const response = await fetch(`http://127.0.0.1:8000/reservas/salas/estado/${id_sala}/`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
