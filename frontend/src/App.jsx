@@ -11,6 +11,9 @@ export default function App() {
       <Link to="/salas">
         <button>Ver salas y habitaciones</button>
       </Link>
+      <Link to="/login">
+        <button>Admin Login</button>
+      </Link>
     </div>
   );
 }
