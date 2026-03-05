@@ -1,19 +1,18 @@
+import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+import NavBar from "./components/common/NavBar";
+import Footer from "./components/common/Footer";
 
 export default function App() {
   return (
-    <div>
-      <h1>Hotel Miga</h1>
+    <div className="layout">      
+      <NavBar />     
+       
+      <main className="content">
+        <Outlet />
+      </main>
 
-      <Link to="/habitaciones">
-        <button>Ver habitaciones</button>
-      </Link>
-      <Link to="/salas">
-        <button>Ver salas y habitaciones</button>
-      </Link>
-      <Link to="/login">
-        <button>Admin Login</button>
-      </Link>
+      <Footer />
     </div>
   );
 }
