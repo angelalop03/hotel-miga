@@ -1,11 +1,3 @@
-.habitaciones-page {
-  min-height: 100vh;
-  background-image: url("/hotel.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
 .habitaciones-hero {
   min-height: 100vh;
   padding: 120px 24px 48px;
@@ -72,6 +64,7 @@
   padding: 0;
   cursor: pointer;
   text-decoration: underline;
+  margin-right:20px;
 }
 
 .habitacion-imageWrap {

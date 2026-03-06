@@ -10,6 +10,7 @@ import Habitaciones from './pages/Habitaciones.jsx'
 import SalasHabitaciones from "./pages/SalasHabitaciones.jsx";
 import Login from "./pages/Login.jsx"
 import Admin from './components/admin/admin.jsx'
+import HabitacionesDisponibles from "./pages/HabitacionesDisponibles";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "habitaciones", element: <Habitaciones /> },
+      { path: "habitaciones-disponibles", element: <HabitacionesDisponibles /> },
       { path: "salas", element: <SalasHabitaciones /> },
       { path: "login", element: <Login /> },
       { path: "admin", element: <Admin /> }

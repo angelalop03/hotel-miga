@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
 export default function Home() {
@@ -6,45 +7,56 @@ export default function Home() {
   const [salida, setSalida] = useState("");
   const [personas, setPersonas] = useState(1);
 
+  const navigate = useNavigate();
+
   const buscarHabitacionesDisponibles = (e) => {
     e.preventDefault();
 
-    console.log("Buscar habitaciones con:");
-    console.log("Entrada:", entrada);
-    console.log("Salida:", salida);
-    console.log("Personas:", personas);
+    if (!entrada || !salida || !personas) {
+      alert("Debes rellenar fecha de entrada, salida y número de personas.");
+      return;
+    }
+
+    if (new Date(salida) <= new Date(entrada)) {
+      alert("La fecha de salida debe ser posterior a la de entrada.");
+      return;
+    }
+
+    navigate(
+      `/habitaciones-disponibles?entrada=${entrada}&salida=${salida}&personas=${personas}`
+    );
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "40px" }}>
+    <div className="buscador">
       <form onSubmit={buscarHabitacionesDisponibles} style={{ marginTop: "20px" }}>
-        <div style={{ marginBottom: "10px" }}>
-          <label>Fecha de entrada:</label>
-          <br />
+        <div>
+          <label>Entrada:</label>
           <input
             type="date"
             value={entrada}
+            required
             onChange={(e) => setEntrada(e.target.value)}
           />
         </div>
 
-        <div style={{ marginBottom: "10px" }}>
-          <label>Fecha de salida:</label>
-          <br />
+        <div>
+          <label>Salida:</label>
           <input
             type="date"
             value={salida}
+            required
             onChange={(e) => setSalida(e.target.value)}
           />
         </div>
 
-        <div style={{ marginBottom: "10px" }}>
+        <div>
           <label>Número de personas:</label>
-          <br />
           <input
             type="number"
             min="1"
             value={personas}
+            required
             onChange={(e) => setPersonas(e.target.value)}
           />
         </div>
