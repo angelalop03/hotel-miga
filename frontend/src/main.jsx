@@ -13,6 +13,7 @@ import Admin from './components/admin/Admin.jsx'
 import AdminReservasSalas from './components/admin/AdminReservasSalas.jsx'
 import AdminHabitaciones from './components/admin/AdminHabitaciones.jsx'
 import AdminSalas from './components/admin/AdminSalas.jsx'
+import AdminExtras from './components/admin/AdminExtras.jsx'
 import HabitacionesDisponibles from "./pages/HabitacionesDisponibles";
 
 const router = createBrowserRouter([
@@ -31,7 +32,8 @@ const router = createBrowserRouter([
         children: [
           { path: "reservas-salas", element: <AdminReservasSalas /> },
           { path: "salas", element: <AdminSalas /> },
-          { path: "habitaciones", element: <AdminHabitaciones /> }
+          { path: "habitaciones", element: <AdminHabitaciones /> },
+          { path: "extras", element: <AdminExtras /> },
         ]
        }
     ] 
