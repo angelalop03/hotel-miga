@@ -3,4 +3,3 @@ djangorestframework
 python-dotenv
 mysqlclient
 django-cors-headers
-react-router-dom
