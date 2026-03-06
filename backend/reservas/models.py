@@ -1,5 +1,6 @@
 from django.db import models
 from sala.models import Sala
+from habitacion.models import Habitacion
 
 # Enumerado para los tres horarios disponibles para las salas
 class Horario(models.TextChoices):
@@ -25,4 +26,16 @@ class ReservaSala(models.Model):
     def __str__(self):
         return f"{self.id_sala} - {self.fecha} - {self.horario}"
     
-# TODO habitaciones
+class ReservaHabitacion(models.Model):
+    id_habitacion = models.ForeignKey(Habitacion, on_delete=models.CASCADE)
+    fecha_entrada = models.DateField()
+    fecha_salida = models.DateField()
+    num_personas = models.IntegerField(null=False, blank=False)
+    nombre = models.CharField(max_length=150, null=False, blank=False)
+    email = models.EmailField(null=False, blank=False)
+    telefono = models.CharField(max_length=15, null=False, blank=False)
+    estado = models.CharField(max_length=10, choices=Estado.choices, default=Estado.PENDIENTE)
+
+    def __str__(self):
+        return f"{self.habitacion} - {self.fecha_entrada} a {self.fecha_salida}"
+
