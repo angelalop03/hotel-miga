@@ -9,7 +9,10 @@ import Home from "./pages/Home.jsx";
 import Habitaciones from './pages/Habitaciones.jsx'
 import SalasHabitaciones from "./pages/SalasHabitaciones.jsx";
 import Login from "./pages/Login.jsx"
-import Admin from './components/admin/admin.jsx'
+import Admin from './components/admin/Admin.jsx'
+import AdminReservasSalas from './components/admin/AdminReservasSalas.jsx'
+import AdminHabitaciones from './components/admin/AdminHabitaciones.jsx'
+import AdminSalas from './components/admin/AdminSalas.jsx'
 import HabitacionesDisponibles from "./pages/HabitacionesDisponibles";
 
 const router = createBrowserRouter([
@@ -22,8 +25,16 @@ const router = createBrowserRouter([
       { path: "habitaciones-disponibles", element: <HabitacionesDisponibles /> },
       { path: "salas", element: <SalasHabitaciones /> },
       { path: "login", element: <Login /> },
-      { path: "admin", element: <Admin /> }
-    ]
+      { 
+        path: "admin", 
+        element: <Admin />,
+        children: [
+          { path: "reservas-salas", element: <AdminReservasSalas /> },
+          { path: "salas", element: <AdminSalas /> },
+          { path: "habitaciones", element: <AdminHabitaciones /> }
+        ]
+       }
+    ] 
   },
   {
     path: "*",

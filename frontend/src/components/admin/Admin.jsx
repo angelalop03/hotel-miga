@@ -1,6 +1,8 @@
-import GestionReservasSalas from "./GestionReservasSalas"
+import "./Admin.css"
+import { Outlet } from "react-router-dom"
+import AdminNavBar from "./AdminNavBar"
 
-function Admin() {
+export default function Admin() {
 
   function logout(){
     fetch("http://127.0.0.1:8000/api/logout/",{
@@ -16,12 +18,10 @@ function Admin() {
             Logout
         </button>
 
-        <h1>Admin dashboard</h1>
-
-        <GestionReservasSalas/>
+        <h2>Panel de Administración</h2>
+        <AdminNavBar/>
+        <Outlet />
 
     </div>
   )
 }
-
-export default Admin
