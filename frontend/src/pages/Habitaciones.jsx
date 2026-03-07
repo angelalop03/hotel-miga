@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useFetch from "../hooks/useFetch";
-import "./Habitaciones.css";
+import "./Espacios.css";
 
 export default function Habitaciones() {
   const { data, loading, error } = useFetch("http://127.0.0.1:8000/habitaciones/");
@@ -13,22 +13,22 @@ export default function Habitaciones() {
     const imageUrl = habitacion.imagen || "/red-room.jpg";
 
     return (
-      <article className="habitacion-card">
-        <div className="habitacion-info">
-          <h2 className="habitacion-name">{habitacion.tipo || "Habitación"}</h2>
+      <article className="espacio-card">
+        <div className="espacio-info">
+          <h2 className="espacio-name">{habitacion.tipo || "Habitación"}</h2>
 
-          <p className="habitacion-meta">
+          <p className="espacio-meta">
             {habitacion.num_personas} personas · {habitacion.num_camas ?? "1"} cama
           </p>
 
-          <p className="habitacion-extras">
+          <p className="espacio-extras">
             {habitacion.extras?.length
               ? habitacion.extras.map((e) => e.nombre).join(" | ")
               : "Wifi | TV | Aire acondicionado"}
           </p>
 
           <button
-            className="habitacion-link"
+            className="espacio-link"
             type="button"
             onClick={() => setHabitacionSeleccionada(habitacion)}
           >
@@ -36,19 +36,19 @@ export default function Habitaciones() {
           </button>
         </div>
 
-        <div className="habitacion-imageWrap">
-          <img className="habitacion-image" src={imageUrl} alt="Habitación" />
+        <div className="espacio-imageWrap">
+          <img className="espacio-image" src={imageUrl} alt="Habitación" />
         </div>
       </article>
     );
   }
 
   return (
-    <div className="habitaciones-page">
-      <div className="habitaciones-hero">
-        <h1 className="habitaciones-title">Nuestras habitaciones</h1>
+    <div className="espacios-page">
+      <div className="espacios-hero">
+        <h1 className="espacios-title">Nuestras habitaciones</h1>
 
-        <div className="habitaciones-list">
+        <div className="espacios-list">
           {data?.map((habitacion) => (
             <HabitacionCard key={habitacion.id} habitacion={habitacion} />
           ))}

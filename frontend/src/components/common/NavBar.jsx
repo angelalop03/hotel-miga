@@ -12,7 +12,7 @@ export default function NavBar() {
         <button>Ver habitaciones</button>
       </Link>
       <Link to="/salas">
-        <button>Ver salas y habitaciones</button>
+        <button>Ver Salas</button>
       </Link>
       <Link to="/login">
         <button>Admin Login</button>
