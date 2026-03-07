@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import useFetch from "../hooks/useFetch";
-import "./Habitaciones.css";
+import "./Espacios.css";
 import "./HabitacionesDisponibles.css";
 
 export default function HabitacionesDisponibles() {
@@ -78,11 +78,11 @@ export default function HabitacionesDisponibles() {
   }
 
   return (
-    <div className="habitaciones-page">
-      <div className="habitaciones-hero">
-        <h1 className="habitaciones-title">Nuestras habitaciones</h1>
+    <div className="espacios-page">
+      <div className="espacios-hero">
+        <h1 className="espacios-title">Nuestras habitaciones</h1>
 
-        <div className="habitaciones-list">
+        <div className="espacios-list">
           {data?.map((habitacion) => (
             <HabitacionCard key={habitacion.id} habitacion={habitacion} />
           ))}
