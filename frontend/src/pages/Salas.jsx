@@ -1,10 +1,12 @@
 import { useState } from "react";
 import useFetch from "../hooks/useFetch";
 import "./Espacios.css";
+import Calendario from "../components/salas/Calendario";
 
 export default function Salas() {
   const { data, loading, error } = useFetch("http://127.0.0.1:8000/salas/");
   const [salaSeleccionada, setSalaSeleccionada] = useState(null);
+  const [reservandoSala, setReservandoSala] = useState(null);
 
   if (loading) return <p className="page-loading">Cargando...</p>;
   if (error) return <p className="page-error">Error: {String(error)}</p>;
@@ -46,6 +48,14 @@ export default function Salas() {
             }}
           />
         </div>
+
+        <button
+            className="habitacion-link"
+            type="button"
+            onClick={() => setReservandoSala(sala)}
+          >
+            Reservar
+          </button>
       </article>
     );
   }
@@ -73,6 +83,14 @@ export default function Salas() {
               </button>
             </div>
           </div>
+        )}
+
+        {reservandoSala && (
+          <div className="popup" onClick={() => setReservandoSala(null)}>
+          <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+            <Calendario sala={reservandoSala}/>
+          </div>
+        </div>
         )}
       </div>
     </div>
