@@ -1,6 +1,22 @@
+:root {
+  --btn-primario: #b22234;
+  --btn-primario-hover: #cf2b3e;
+  --btn-secundario: #292929;
+  --btn-formulario: #296cff;
+  --btn-formulario-hover: #1a47c3;
+  --btn-editar: #7fe361;
+  --btn-editar-hover: #57aa3e;
+  --btn-borrar: #f51f1f;
+  --btn-borrar-hover: #c91d1d;
+
+  --bg-modal: #25252573;
+}
+
 html, body, #root {
   height: 100%;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .layout {
@@ -11,4 +27,9 @@ html, body, #root {
 
 .content {
   flex: 1;
+}
+
+button{
+  border: none;
+  transition: background-color 0.3s ease;
 }

@@ -11,8 +11,8 @@ export default function FormExtra({ onClose, extra, onActualizado }) {
     e.preventDefault();
 
     const url = esEdicion
-        ? `http://127.0.0.1:8000/extras/${idExtra}/`
-        : "http://127.0.0.1:8000/extras/";
+        ? `${import.meta.env.VITE_BACKEND_URL}/extras/${idExtra}/`
+        : `${import.meta.env.VITE_BACKEND_URL}/extras/`;
 
     const method = esEdicion ? "PUT" : "POST";
 

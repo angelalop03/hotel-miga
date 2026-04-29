@@ -6,7 +6,7 @@ export default function ItemExtra({extra, onEditar, onActualizado}){
         }
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/extras/${extra.id}/`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/extras/${extra.id}/`, {
                 method: "DELETE"
             });
 

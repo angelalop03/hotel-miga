@@ -11,7 +11,7 @@ export default function HabitacionesDisponibles() {
   const salida = params.get("salida");
   const personas = params.get("personas");
 
-  const url = `http://127.0.0.1:8000/habitaciones/disponibles/?fecha_entrada=${entrada}&fecha_salida=${salida}&personas=${personas}`;
+  const url = `${import.meta.env.VITE_BACKEND_URL}/habitaciones/disponibles/?fecha_entrada=${entrada}&fecha_salida=${salida}&personas=${personas}`;
 
   const { data, loading, error } = useFetch(url);
 
@@ -114,7 +114,7 @@ export default function HabitacionesDisponibles() {
                 
                 try {
                   const response = await fetch(
-                    "http://127.0.0.1:8000/reservas/habitaciones/",
+                    `${import.meta.env.VITE_BACKEND_URL}/reservas/habitaciones/`,
                     {
                       method: "POST",
                       headers: {

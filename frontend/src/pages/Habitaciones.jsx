@@ -3,7 +3,7 @@ import useFetch from "../hooks/useFetch";
 import "./Espacios.css";
 
 export default function Habitaciones() {
-  const { data, loading, error } = useFetch("http://127.0.0.1:8000/habitaciones/");
+  const { data, loading, error } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/habitaciones/`);
   const [habitacionSeleccionada, setHabitacionSeleccionada] = useState(null);
 
   if (loading) return <p className="page-loading">Cargando...</p>;

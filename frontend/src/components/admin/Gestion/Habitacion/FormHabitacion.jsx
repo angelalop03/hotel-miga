@@ -8,7 +8,7 @@ export default function FormHabitacion({ onClose, habitacion, onActualizado }) {
     const [numPersonas, setNumPersonas] = useState(habitacion?.num_personas || "");
     const [precio, setPrecio] = useState(habitacion?.precio || "");
     const [extrasSeleccionados, setExtrasSeleccionados] = useState(habitacion?.extras?.map(e => e.id) || []);
-    const { data: extras } = useFetch("http://127.0.0.1:8000/extras/");
+    const { data: extras } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/extras/`);
     const esEdicion = !!habitacion;
 
     const toggleExtra = (id) => {
@@ -23,8 +23,8 @@ export default function FormHabitacion({ onClose, habitacion, onActualizado }) {
     e.preventDefault();
 
     const url = esEdicion
-        ? `http://127.0.0.1:8000/habitaciones/${habitacion.num_habitacion}/`
-        : "http://127.0.0.1:8000/habitaciones/";
+        ? `${import.meta.env.VITE_BACKEND_URL}/habitaciones/${habitacion.num_habitacion}/`
+        : `${import.meta.env.VITE_BACKEND_URL}/habitaciones/`;
 
     const method = esEdicion ? "PUT" : "POST";
 

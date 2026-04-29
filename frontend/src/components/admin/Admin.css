@@ -8,9 +8,8 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    background: #b22234;
+    background: var(--btn-primario);
     color: white;
-    border: none;
     padding: 10px 18px;
     border-radius: 6px;
     cursor: pointer;
@@ -18,21 +17,20 @@
 }
 
 .logout-btn:hover {
-    background: #912018;
+    background: var(--btn-primario-hover);
 }
 
 .button-pop-up{
-    border: none;
     border-radius: 6px;
     padding: 9px 14px;
-    background: #296cff;
+    background: var(--btn-formulario);
     color: white;
     cursor: pointer;
     font-weight: 600;
 }
 
 .button-pop-up:hover {
-    background: #1a47c3;
+    background: var(--btn-formulario-hover);
 }
 
 .admin-container table {
@@ -66,7 +64,6 @@
 }
 
 table button{
-    border: none;
     border-radius: 1rem;
     padding: 0.8rem;
     cursor: pointer;
@@ -75,20 +72,20 @@ table button{
 
 table button:first-child{
     margin-right: 0.5rem;
-    background-color: #7fe361;
+    background-color: var(--btn-editar);
 }
 
 table button:first-child:hover{
-    background-color: #57aa3e;
+    background-color: var(--btn-editar-hover);
 }
 
 table button:last-child{
-    background-color: #e11d1d;
+    background-color: var(--btn-borrar);
     color: white;
 }
 
 table button:last-child:hover{
-    background-color: #ae1818;
+    background-color: var(--btn-borrar);
 }
 
 .popup {
@@ -96,7 +93,7 @@ table button:last-child:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #25252573;
+    background: var(--bg-modal);
 }
 
 .popup-content {
@@ -134,37 +131,14 @@ table button:last-child:hover{
 
 .popup-content .btn-submit {
     width: 100%;
-    border: none;
     border-radius: 6px;
     padding: 9px 14px;
-    background: #296cff;
+    background: var(--btn-formulario);
     color: white;
     cursor: pointer;
     font-weight: 600;
 }
 
 .popup-content .btn-submit:hover {
-    background: #1a47c3;
+    background: var(--btn-formulario-hover);
 }
-
-button{
-    transition: background-color 0.3s ease;
-}
-
-/* @media (max-width: 768px) {
-    .admin-container {
-        padding: 24px 16px;
-    }
-
-    .logout-btn {
-        position: static;
-        display: block;
-        margin-left: auto;
-        margin-bottom: 20px;
-    }
-
-    .admin-container table {
-        display: block;
-        overflow-x: auto;
-    }
-} */

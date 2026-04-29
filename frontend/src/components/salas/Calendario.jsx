@@ -14,7 +14,7 @@ export default function Calendario({sala}){
     const [horarioSeleccionado, setHorarioSeleccionado] = useState("");
     const [horariosOcupados, setHorariosOcupados] = useState([]);
 
-    const { data, loading, error } = useFetch(`http://127.0.0.1:8000/reservas/salas/ocupado/${sala.id}/`);
+    const { data, loading, error } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/reservas/salas/ocupado/${sala.id}/`);
 
     function irFormularioReserva(){
         console.log(`Sala: ${sala.id} - Dia: ${formatearFechaAYYYYMMDD(diaSeleccionado.toLocaleDateString())} - horario: ${horarioSeleccionado}`)

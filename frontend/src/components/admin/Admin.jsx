@@ -5,7 +5,7 @@ import AdminNavBar from "./AdminNavBar"
 export default function Admin() {
 
   function logout(){
-    fetch("http://127.0.0.1:8000/api/logout/",{
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logout/`,{
       method:"POST"
     })
     window.location="/login"

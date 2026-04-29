@@ -6,7 +6,7 @@ export default function ItemHabitacion({habitacion, onEditar, onActualizado}){
         }
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/habitaciones/${habitacion.num_habitacion}/`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/habitaciones/${habitacion.num_habitacion}/`, {
                 method: "DELETE"
             });
 

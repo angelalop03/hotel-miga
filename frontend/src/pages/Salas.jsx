@@ -4,7 +4,7 @@ import "./Espacios.css";
 import Calendario from "../components/salas/Calendario";
 
 export default function Salas() {
-  const { data, loading, error } = useFetch("http://127.0.0.1:8000/salas/");
+  const { data, loading, error } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/salas/`);
   const [salaSeleccionada, setSalaSeleccionada] = useState(null);
   const [reservandoSala, setReservandoSala] = useState(null);
 
