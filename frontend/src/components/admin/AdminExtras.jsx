@@ -1,5 +1,5 @@
-import GestionExtras from "./GestionExtras"
 import "./Admin.css"
+import GestionExtras from "./Gestion/Extras/GestionExtras"
 
 function AdminExtras() {
   return (

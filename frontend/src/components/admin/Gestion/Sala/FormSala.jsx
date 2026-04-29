@@ -1,15 +1,16 @@
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../../../hooks/useFetch";
 import { useState } from "react";
 
-export default function FormHabitacion({ onClose, habitacion, onActualizado }) {
+export default function FormSala({ onClose, sala, onActualizado }) {
 
-    const [numHabitacion, setNumHabitacion] = useState(habitacion?.num_habitacion || "");
-    const [descripcion, setDescripcion] = useState(habitacion?.descripcion || "");
-    const [numPersonas, setNumPersonas] = useState(habitacion?.num_personas || "");
-    const [precio, setPrecio] = useState(habitacion?.precio || "");
-    const [extrasSeleccionados, setExtrasSeleccionados] = useState(habitacion?.extras?.map(e => e.id) || []);
+    const [idSala, setIdSala] = useState(sala?.id || "");
+    const [nombreSala, setNombreSala] = useState(sala?.nombre_sala || "");
+    const [descripcion, setDescripcion] = useState(sala?.descripcion || "");
+    const [personasMax, setPersonasMax] = useState(sala?.personas_max || "");
+    const [precio, setPrecio] = useState(sala?.precio || "");
+    const [extrasSeleccionados, setExtrasSeleccionados] = useState(sala?.extras?.map(e => e.id) || []);
     const { data: extras } = useFetch("http://127.0.0.1:8000/extras/");
-    const esEdicion = !!habitacion;
+    const esEdicion = !!sala;
 
     const toggleExtra = (id) => {
         setExtrasSeleccionados(prev => 
@@ -23,8 +24,8 @@ export default function FormHabitacion({ onClose, habitacion, onActualizado }) {
     e.preventDefault();
 
     const url = esEdicion
-        ? `http://127.0.0.1:8000/habitaciones/${habitacion.num_habitacion}/`
-        : "http://127.0.0.1:8000/habitaciones/";
+        ? `http://127.0.0.1:8000/salas/${sala.id}/`
+        : "http://127.0.0.1:8000/salas/";
 
     const method = esEdicion ? "PUT" : "POST";
 
@@ -36,16 +37,17 @@ export default function FormHabitacion({ onClose, habitacion, onActualizado }) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            num_habitacion: numHabitacion,
-            descripcion,
-            num_personas: numPersonas,
+            id: idSala,
+            nombre_sala: nombreSala,    
+            descripcion: descripcion,
+            personas_max: personasMax,
             precio,
             extras_ids: extrasSeleccionados
         })
         });
 
         if(!response.ok){
-        throw new Error("Error guardando habitación");
+        throw new Error("Error guardando sala");
         }
 
         if (onActualizado) {
@@ -55,7 +57,7 @@ export default function FormHabitacion({ onClose, habitacion, onActualizado }) {
 
     } catch(err){
         console.error(err);
-        alert("Error guardando habitación");
+        alert("Error guardando sala");
     }
     };
 
@@ -63,16 +65,16 @@ export default function FormHabitacion({ onClose, habitacion, onActualizado }) {
     <div className="popup" onClick={onClose}>
         <div className="popup-content" onClick={(e)=>e.stopPropagation()}>
 
-        <h3>{esEdicion ? "Editar habitación" : "Crear habitación"}</h3>
+        <h3>{esEdicion ? "Editar sala" : "Crear sala"}</h3>
 
         <form onSubmit={handleSubmit}>
 
             <div>
-                <label>Número habitación</label>
+                <label>Nombre de la sala</label>
                 <input
-                    type="number"
-                    value={numHabitacion}
-                    onChange={(e)=>setNumHabitacion(e.target.value)}
+                    type="text"
+                    value={nombreSala}
+                    onChange={(e)=>setNombreSala(e.target.value)}
                     required
                 />
             </div>
@@ -90,8 +92,8 @@ export default function FormHabitacion({ onClose, habitacion, onActualizado }) {
                 <label>Ocupación máxima</label>
                 <input
                     type="number"
-                    value={numPersonas}
-                    onChange={(e)=>setNumPersonas(e.target.value)}
+                    value={personasMax}
+                    onChange={(e)=>setPersonasMax(e.target.value)}
                     required
                 />
             </div>
@@ -121,8 +123,8 @@ export default function FormHabitacion({ onClose, habitacion, onActualizado }) {
                 ))}
                 </div>
 
-            <button type="submit">
-            {esEdicion ? "Guardar cambios" : "Crear habitación"}
+            <button className="btn-submit" type="submit">
+            {esEdicion ? "Guardar cambios" : "Crear sala"}
             </button>
 
         </form>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../../../hooks/useFetch";
 import ItemExtra from "./ItemExtra"
 import FormExtra from "./FormExtra";
 
@@ -22,7 +22,7 @@ export default function GestionExtras(){
         <>
             <h2>Gestionar Extras</h2>
 
-            <button onClick={abrirCrear}>
+            <button className="button-pop-up" onClick={abrirCrear}>
                 Crear extra
             </button>
 
