@@ -45,30 +45,26 @@ export default function FormExtra({ onClose, extra, onActualizado }) {
     };
 
     return (
-    <div className="popup" onClick={onClose}>
-        <div className="popup-content" onClick={(e)=>e.stopPropagation()}>
+        <div className="popup" onClick={onClose}>
+            <div className="popup-content" onClick={(e)=>e.stopPropagation()}>
 
-        <h3>{esEdicion ? "Editar extra" : "Crear extra"}</h3>
+                <h3>{esEdicion ? "Editar extra" : "Crear extra"}</h3>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label>Nombre del extra</label>
+                        <input
+                            type="text"
+                            value={nombreExtra}
+                            onChange={(e)=>setNombreExtra(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <button className="popup-btn" type="submit">
+                        {esEdicion ? "Guardar cambios" : "Crear extra"}
+                    </button>
+                </form>
 
-        <form onSubmit={handleSubmit}>
-
-            <div>
-                <label>Nombre del extra</label>
-                <input
-                    type="text"
-                    value={nombreExtra}
-                    onChange={(e)=>setNombreExtra(e.target.value)}
-                    required
-                />
-            </div>            
-
-            <button className="btn-submit" type="submit">
-            {esEdicion ? "Guardar cambios" : "Crear extra"}
-            </button>
-
-        </form>
-
+            </div>
         </div>
-    </div>
     )
 }

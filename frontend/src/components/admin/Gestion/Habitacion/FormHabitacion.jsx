@@ -109,19 +109,22 @@ export default function FormHabitacion({ onClose, habitacion, onActualizado }) {
 
             <div>
                 <label>Extras</label>
-                {extras?.map(extra => (
-                    <label key={extra.id} style={{display:"block"}}>
-                    <input
-                        type="checkbox"
-                        checked={extrasSeleccionados.includes(extra.id)}
-                        onChange={() => toggleExtra(extra.id)}
-                    />
-                    {extra.nombre}
-                    </label>
-                ))}
+                <div className="popup-extras">
+                  {extras?.map(extra => (
+                        <label key={extra.id}>
+                        <input
+                            type="checkbox"
+                            checked={extrasSeleccionados.includes(extra.id)}
+                            onChange={() => toggleExtra(extra.id)}
+                        />
+                        {extra.nombre}
+                        </label>
+                    ))}  
+                </div>
+                
                 </div>
 
-            <button className="btn-submit" type="submit">
+            <button className="popup-btn" type="submit">
             {esEdicion ? "Guardar cambios" : "Crear habitación"}
             </button>
 

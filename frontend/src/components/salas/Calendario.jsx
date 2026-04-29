@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import useFetch from "../../hooks/useFetch";
 import { es } from "react-day-picker/locale";
 import SelectHorario from "./SelectHorario";
+import "./Calendario.css";
 import { formatearFechaAYYYYMMDD, formatearFechaADate } from "../../funcionesAuxiliares";
 
 
@@ -48,6 +49,7 @@ export default function Calendario({sala}){
 
         setCompleto(auxCompletos);
         setParcial(auxParciales);
+        console.log(parcial);
     }, [data])
 
     useEffect(() => {

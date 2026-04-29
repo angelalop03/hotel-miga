@@ -9,14 +9,18 @@
   --btn-borrar: #f51f1f;
   --btn-borrar-hover: #c91d1d;
 
-  --bg-modal: #25252573;
+  --bg-pop-up: #25252573;
+  --bg-pop-up-card: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html, body, #root {
   height: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 .layout {
@@ -31,5 +35,93 @@ html, body, #root {
 
 button{
   border: none;
+  cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.popup {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-pop-up);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.popup-content {
+  width: min(700px, 100%);
+  overflow-y: auto;
+  background-color: var(--bg-pop-up-card);
+  color: white;
+  border-radius: 1.25rem;
+  padding: 3rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.popup-content h3 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.popup-content p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.popup-content form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.popup-content form div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.popup-content label{
+  font-weight: 600;
+}
+
+.popup-content input{
+  font-weight: 600;
+  padding: 0.85rem 1rem;
+  border: 1px solid #c4c4c4;
+  flex: 1;
+  border-radius: 0.75rem;
+}
+
+.popup-content .popup-extras{
+  flex-wrap: wrap;
+}
+
+.popup-content .popup-extras input{
+  margin-right: 1rem;
+}
+
+.popup-content .popup-btn {
+  width: 100%;
+  border: none;
+  background-color: var(--btn-primario);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 0.9rem;
+  cursor: pointer;
+}
+
+.popup-content .pop-up-btn:hover {
+  background-color: var(--btn-primario-hover);
+}
+
+.page-loading,
+.page-error {
+  padding: 4rem 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
 }

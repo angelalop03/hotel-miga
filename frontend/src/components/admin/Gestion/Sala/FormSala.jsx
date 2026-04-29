@@ -111,19 +111,20 @@ export default function FormSala({ onClose, sala, onActualizado }) {
 
             <div>
                 <label>Extras</label>
-                {extras?.map(extra => (
-                    <label key={extra.id} style={{display:"block"}}>
-                    <input
-                        type="checkbox"
-                        checked={extrasSeleccionados.includes(extra.id)}
-                        onChange={() => toggleExtra(extra.id)}
-                    />
-                    {extra.nombre}
-                    </label>
-                ))}
+                <div className="popup-extras">
+                    {extras?.map(extra => (
+                        <label key={extra.id}>
+                        <input
+                            type="checkbox"
+                            checked={extrasSeleccionados.includes(extra.id)}
+                            onChange={() => toggleExtra(extra.id)}
+                        />
+                        {extra.nombre}
+                        </label>
+                    ))}
                 </div>
-
-            <button className="btn-submit" type="submit">
+            </div>
+            <button className="popup-btn" type="submit">
             {esEdicion ? "Guardar cambios" : "Crear sala"}
             </button>
 

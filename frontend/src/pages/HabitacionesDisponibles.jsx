@@ -1,8 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import useFetch from "../hooks/useFetch";
-import "./Espacios.css";
-import "./HabitacionesDisponibles.css";
 
 export default function HabitacionesDisponibles() {
   const [params] = useSearchParams();
@@ -40,29 +38,27 @@ export default function HabitacionesDisponibles() {
     const imageUrl = habitacion.imagen || "/red-room.jpg";
 
     return (
-      <article className="espacio-card">
-        <div className="espacio-info">
-          <h2 className="espacio-name">{habitacion.tipo || "Habitación"}</h2>
+      <article>
+        <div>
+          <h2>{habitacion.tipo || "Habitación"}</h2>
 
-          <p className="espacio-meta">
+          <p>
             {habitacion.num_personas} personas · {habitacion.num_camas ?? "1"} cama
           </p>
 
-          <p className="espacio-extras">
+          <p>
             {habitacion.extras?.length
               ? habitacion.extras.map((e) => e.nombre).join(" | ")
               : "Wifi | TV | Aire acondicionado"}
           </p>
 
           <button
-            className="espacio-link"
             type="button"
             onClick={() => setHabitacionSeleccionada(habitacion)}
           >
             Ver detalles
           </button>
           <button
-            className="espacio-link"
             type="button"
             onClick={() => setReservandoHabitacion(habitacion)}
           >
@@ -70,19 +66,19 @@ export default function HabitacionesDisponibles() {
           </button>
         </div>
 
-        <div className="espacio-imageWrap">
-          <img className="espacio-image" src={imageUrl} alt="Habitación" />
+        <div>
+          <img src={imageUrl} alt="Habitación" />
         </div>
       </article>
     );
   }
 
   return (
-    <div className="espacios-page">
-      <div className="espacios-hero">
-        <h1 className="espacios-title">Nuestras habitaciones</h1>
+    <div>
+      <div>
+        <h1>Nuestras habitaciones</h1>
 
-        <div className="espacios-list">
+        <div>
           {data?.map((habitacion) => (
             <HabitacionCard key={habitacion.id} habitacion={habitacion} />
           ))}
