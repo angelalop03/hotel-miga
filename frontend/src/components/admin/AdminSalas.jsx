@@ -1,4 +1,4 @@
-import GestionSalas from "./GestionSalas"
+import GestionSalas from "./Gestion/Sala/GestionSalas"
 import "./Admin.css"
 
 function AdminSalas() {

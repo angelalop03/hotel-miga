@@ -1,16 +1,15 @@
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../../../hooks/useFetch";
 import { useState } from "react";
 
-export default function FormSala({ onClose, sala, onActualizado }) {
+export default function FormHabitacion({ onClose, habitacion, onActualizado }) {
 
-    const [idSala, setIdSala] = useState(sala?.id || "");
-    const [nombreSala, setNombreSala] = useState(sala?.nombre_sala || "");
-    const [descripcion, setDescripcion] = useState(sala?.descripcion || "");
-    const [personasMax, setPersonasMax] = useState(sala?.personas_max || "");
-    const [precio, setPrecio] = useState(sala?.precio || "");
-    const [extrasSeleccionados, setExtrasSeleccionados] = useState(sala?.extras?.map(e => e.id) || []);
+    const [numHabitacion, setNumHabitacion] = useState(habitacion?.num_habitacion || "");
+    const [descripcion, setDescripcion] = useState(habitacion?.descripcion || "");
+    const [numPersonas, setNumPersonas] = useState(habitacion?.num_personas || "");
+    const [precio, setPrecio] = useState(habitacion?.precio || "");
+    const [extrasSeleccionados, setExtrasSeleccionados] = useState(habitacion?.extras?.map(e => e.id) || []);
     const { data: extras } = useFetch("http://127.0.0.1:8000/extras/");
-    const esEdicion = !!sala;
+    const esEdicion = !!habitacion;
 
     const toggleExtra = (id) => {
         setExtrasSeleccionados(prev => 
@@ -24,8 +23,8 @@ export default function FormSala({ onClose, sala, onActualizado }) {
     e.preventDefault();
 
     const url = esEdicion
-        ? `http://127.0.0.1:8000/salas/${sala.id}/`
-        : "http://127.0.0.1:8000/salas/";
+        ? `http://127.0.0.1:8000/habitaciones/${habitacion.num_habitacion}/`
+        : "http://127.0.0.1:8000/habitaciones/";
 
     const method = esEdicion ? "PUT" : "POST";
 
@@ -37,17 +36,16 @@ export default function FormSala({ onClose, sala, onActualizado }) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            id: idSala,
-            nombre_sala: nombreSala,    
-            descripcion: descripcion,
-            personas_max: personasMax,
+            num_habitacion: numHabitacion,
+            descripcion,
+            num_personas: numPersonas,
             precio,
             extras_ids: extrasSeleccionados
         })
         });
 
         if(!response.ok){
-        throw new Error("Error guardando sala");
+        throw new Error("Error guardando habitación");
         }
 
         if (onActualizado) {
@@ -57,7 +55,7 @@ export default function FormSala({ onClose, sala, onActualizado }) {
 
     } catch(err){
         console.error(err);
-        alert("Error guardando sala");
+        alert("Error guardando habitación");
     }
     };
 
@@ -65,16 +63,16 @@ export default function FormSala({ onClose, sala, onActualizado }) {
     <div className="popup" onClick={onClose}>
         <div className="popup-content" onClick={(e)=>e.stopPropagation()}>
 
-        <h3>{esEdicion ? "Editar sala" : "Crear sala"}</h3>
+        <h3>{esEdicion ? "Editar habitación" : "Crear habitación"}</h3>
 
         <form onSubmit={handleSubmit}>
 
             <div>
-                <label>Nombre de la sala</label>
+                <label>Número habitación</label>
                 <input
-                    type="text"
-                    value={nombreSala}
-                    onChange={(e)=>setNombreSala(e.target.value)}
+                    type="number"
+                    value={numHabitacion}
+                    onChange={(e)=>setNumHabitacion(e.target.value)}
                     required
                 />
             </div>
@@ -92,8 +90,8 @@ export default function FormSala({ onClose, sala, onActualizado }) {
                 <label>Ocupación máxima</label>
                 <input
                     type="number"
-                    value={personasMax}
-                    onChange={(e)=>setPersonasMax(e.target.value)}
+                    value={numPersonas}
+                    onChange={(e)=>setNumPersonas(e.target.value)}
                     required
                 />
             </div>
@@ -123,8 +121,8 @@ export default function FormSala({ onClose, sala, onActualizado }) {
                 ))}
                 </div>
 
-            <button type="submit">
-            {esEdicion ? "Guardar cambios" : "Crear sala"}
+            <button className="btn-submit" type="submit">
+            {esEdicion ? "Guardar cambios" : "Crear habitación"}
             </button>
 
         </form>

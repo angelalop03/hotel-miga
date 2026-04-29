@@ -1,0 +1,39 @@
+h2 {
+    text-align: center;
+}
+
+.admin-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.admin-nav button {
+    background-color: #292929;
+    color: white;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #b22234;
+}
+
+.admin-nav button:hover {
+    border-color: #292929;
+    background: #b22234;
+}
+
+.admin-nav .activo{
+    background-color: #b22234;
+    color: white;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #292929;
+}
+
+.admin-nav .activo:hover {
+    border-color: #292929;
+    background: #b22234;
+}

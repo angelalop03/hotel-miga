@@ -1,36 +1,36 @@
 import { useState } from "react";
-import useFetch from "../../hooks/useFetch";
-import ItemSala from "./ItemSala"
-import FormSala from "./FormSala";
+import useFetch from "../../../../hooks/useFetch";
+import ItemHabitacion from "./ItemHabitacion"
+import FormHabitacion from "./FormHabitacion";
 
-export default function GestionSalas(){
-    const { data:salas, loading, error, refetch } = useFetch("http://127.0.0.1:8000/salas/");
-    const [salaEditando, setSalaEditando] = useState(null);
+export default function GestionHabitaciones(){
+    const { data:habitaciones, loading, error, refetch } = useFetch("http://127.0.0.1:8000/habitaciones/");
+    const [habitacionEditando, setHabitacionEditando] = useState(null);
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
     
     const abrirCrear = () => {
-        setSalaEditando(null);
+        setHabitacionEditando(null);
         setMostrarFormulario(true);
     };
 
     const abrirEditar = (habitacion) => {
-        setSalaEditando(habitacion);
+        setHabitacionEditando(habitacion);
         setMostrarFormulario(true);
     };
 
     return (
         <>
-            <h2>Gestionar Salas</h2>
+            <h2>Gestionar Habitaciones</h2>
 
-            <button onClick={abrirCrear}>
-                Crear sala
+            <button className="button-pop-up" onClick={abrirCrear}>
+                Crear habitación
             </button>
 
             <table>
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nombre</th>
+                        <th>Número</th>
                         <th>Descripción</th>
                         <th>Ocupación máxima</th>
                         <th>Precio</th>
@@ -39,11 +39,11 @@ export default function GestionSalas(){
                     </tr>  
                 </thead>
                 <tbody>
-                    {salas?.map(sala => (
-                        <ItemSala 
-                            sala = {sala} 
-                            key={sala.id}
-                            onEditar={() => abrirEditar(sala)}
+                    {habitaciones?.map(habitacion => (
+                        <ItemHabitacion 
+                            habitacion = {habitacion} 
+                            key={habitacion.id}
+                            onEditar={() => abrirEditar(habitacion)}
                             onActualizado={refetch}
                         />
                     ))}
@@ -51,8 +51,8 @@ export default function GestionSalas(){
             </table>
 
             {mostrarFormulario && (
-                <FormSala
-                    sala={salaEditando}
+                <FormHabitacion
+                    habitacion={habitacionEditando}
                     onClose={() => setMostrarFormulario(false)}
                     onActualizado={() => {
                         setMostrarFormulario(false);

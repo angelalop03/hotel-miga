@@ -1,6 +1,6 @@
 import ButtonReservarSala from "./ButtonReservarSala"
 
-export default function GestionReservasSalas({reserva}){
+export default function ItemReservaSala({reserva}){
     return (
         <tr>
             <td>{reserva.id}</td>
@@ -10,7 +10,7 @@ export default function GestionReservasSalas({reserva}){
             <td>{reserva.nombre}</td>
             <td>{reserva.email}</td>
             <td>{reserva.telefono}</td>
-            <ButtonReservarSala estadoOriginal={reserva.estado} id_sala={reserva.id}/>
+            <ButtonReservarSala estadoOriginal={reserva.estado} id_reserva={reserva.id}/>
         </tr>
     )
 }

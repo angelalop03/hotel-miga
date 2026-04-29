@@ -1,4 +1,4 @@
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../../../hooks/useFetch";
 import { useState } from "react";
 
 export default function FormExtra({ onClose, extra, onActualizado }) {
@@ -62,7 +62,7 @@ export default function FormExtra({ onClose, extra, onActualizado }) {
                 />
             </div>            
 
-            <button type="submit">
+            <button className="btn-submit" type="submit">
             {esEdicion ? "Guardar cambios" : "Crear extra"}
             </button>
 

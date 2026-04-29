@@ -18,9 +18,8 @@ export default function Admin() {
             Logout
         </button>
 
-        <h2>Panel de Administración</h2>
         <AdminNavBar/>
-        <Outlet />
+        <Outlet/>
 
     </div>
   )

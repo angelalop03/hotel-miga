@@ -1,5 +1,5 @@
-import GestionHabitaciones from "./GestionHabitaciones"
 import "./Admin.css"
+import GestionHabitaciones from "./Gestion/Habitacion/GestionHabitaciones"
 
 function AdminHabitaciones() {
   return (
