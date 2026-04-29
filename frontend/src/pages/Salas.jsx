@@ -2,6 +2,7 @@ import { useState } from "react";
 import useFetch from "../hooks/useFetch";
 import Calendario from "../components/salas/Calendario";
 import SalaCard from "../components/salas/SalaCard";
+import "./Espacios.css"
 
 export default function Salas() {
   const { data, loading, error } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/salas/`);
@@ -12,11 +13,11 @@ export default function Salas() {
   if (error) return <p className="page-error">Error: {String(error)}</p>;
 
   return (
-    <div className="salas-page">
-      <div className="salas-wrapper">
-        <h2 className="salas-title">Nuestras salas</h2>
+    <div className="espacios-page">
+      <div className="espacios-hero">
+        <h2 className="espacios-title">Nuestras salas</h2>
 
-        <div className="salas-grid">
+        <div className="espacios-list">
           {data?.map((sala) => (
             <SalaCard
               key={sala.id}

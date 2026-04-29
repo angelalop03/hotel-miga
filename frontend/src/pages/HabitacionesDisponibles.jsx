@@ -38,27 +38,29 @@ export default function HabitacionesDisponibles() {
     const imageUrl = habitacion.imagen || "/red-room.jpg";
 
     return (
-      <article>
-        <div>
-          <h2>{habitacion.tipo || "Habitación"}</h2>
+      <article className="espacio-card">
+        <div className="espacio-info">
+          <h2 className="espacio-name">{habitacion.tipo || "Habitación"}</h2>
 
-          <p>
+          <p className="espacio-meta">
             {habitacion.num_personas} personas · {habitacion.num_camas ?? "1"} cama
           </p>
 
-          <p>
+          <p className="espacio-extras">
             {habitacion.extras?.length
               ? habitacion.extras.map((e) => e.nombre).join(" | ")
               : "Wifi | TV | Aire acondicionado"}
           </p>
 
           <button
+            className="espacio-link"
             type="button"
             onClick={() => setHabitacionSeleccionada(habitacion)}
           >
             Ver detalles
           </button>
           <button
+            className="espacio-btn"
             type="button"
             onClick={() => setReservandoHabitacion(habitacion)}
           >
@@ -66,19 +68,19 @@ export default function HabitacionesDisponibles() {
           </button>
         </div>
 
-        <div>
-          <img src={imageUrl} alt="Habitación" />
+        <div className="espacio-imageWrap">
+          <img className="espacio-image" src={imageUrl} alt="Habitación" />
         </div>
       </article>
     );
   }
 
   return (
-    <div>
-      <div>
-        <h1>Nuestras habitaciones</h1>
+    <div className="espacios-page">
+      <div className="espacios-hero">
+        <h1 className="espacios-title">Nuestras habitaciones</h1>
 
-        <div>
+        <div className="espacios-list">
           {data?.map((habitacion) => (
             <HabitacionCard key={habitacion.id} habitacion={habitacion} />
           ))}
@@ -92,7 +94,7 @@ export default function HabitacionesDisponibles() {
               <p>{habitacionSeleccionada.descripcion || "Sin descripción"}</p>
               <p>Precio: {habitacionSeleccionada.precio ?? "-"} €</p>
 
-              <button type="button" onClick={() => setHabitacionSeleccionada(null)}>
+              <button className="popup-btn" type="button" onClick={() => setHabitacionSeleccionada(null)}>
                 Cerrar
               </button>
             </div>
@@ -171,7 +173,7 @@ export default function HabitacionesDisponibles() {
                     required
                   />
                 </div>  
-                <button type="submit">Confirmar reserva</button>
+                <button className="popup-btn" type="submit">Confirmar reserva</button>
               </form>
               <button type="button" onClick={() => setReservandoHabitacion(null)}>
                 Cerrar

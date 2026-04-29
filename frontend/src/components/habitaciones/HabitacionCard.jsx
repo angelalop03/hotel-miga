@@ -1,22 +1,23 @@
-export default function HabitacionCard({ habitacion }) {
+export default function HabitacionCard({ habitacion, setHabitacionSeleccionada }) {
     const imageUrl = habitacion.imagen || "/red-room.jpg";
 
     return (
-        <article>
-            <div>
-                <h2>{habitacion.tipo || "Habitación"}</h2>
+        <article className="espacio-card">
+            <div className="espacio-info">
+                <h2 className="espacio-name">{habitacion.tipo || "Habitación"}</h2>
 
-                <p>
+                <p className="espacio-meta">
                 {habitacion.num_personas} personas · {habitacion.num_camas ?? "1"} cama
                 </p>
 
-                <p>
+                <p className="espacio-extras">
                 {habitacion.extras?.length
                     ? habitacion.extras.map((e) => e.nombre).join(" | ")
                     : "Wifi | TV | Aire acondicionado"}
                 </p>
 
                 <button
+                className="espacio-link"
                 type="button"
                 onClick={() => setHabitacionSeleccionada(habitacion)}
                 >
@@ -24,8 +25,8 @@ export default function HabitacionCard({ habitacion }) {
                 </button>
             </div>
 
-            <div>
-                <img src={imageUrl} alt="Habitación" />
+            <div className="espacio-imageWrap">
+                <img className="espacio-image" src={imageUrl} alt="Habitación" />
             </div>
         </article>
     );

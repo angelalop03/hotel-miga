@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useFetch from "../hooks/useFetch";
+import "./Espacios.css"
 import HabitacionCard from "../components/habitaciones/HabitacionCard";
 
 export default function Habitaciones() {
@@ -10,13 +11,13 @@ export default function Habitaciones() {
   if (error) return <p className="page-error">Error: {String(error)}</p>;
 
   return (
-    <div>
-      <div>
-        <h1>Nuestras habitaciones</h1>
+    <div className="espacios-page">
+      <div className="espacios-hero">
+        <h1 className="espacios-title">Nuestras habitaciones</h1>
 
-        <div>
+        <div className="espacios-list">
           {data?.map((habitacion) => (
-            <HabitacionCard key={habitacion.id} habitacion={habitacion} />
+            <HabitacionCard key={habitacion.id} habitacion={habitacion} setHabitacionSeleccionada={setHabitacionSeleccionada} />
           ))}
         </div>
 
@@ -28,7 +29,7 @@ export default function Habitaciones() {
               <p>{habitacionSeleccionada.descripcion || "Sin descripción"}</p>
               <p>Precio: {habitacionSeleccionada.precio ?? "-"} €</p>
 
-              <button type="button" onClick={() => setHabitacionSeleccionada(null)}>
+              <button className="popup-btn" type="button" onClick={() => setHabitacionSeleccionada(null)}>
                 Cerrar
               </button>
             </div>
