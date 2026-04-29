@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <div className="buscador">
-      <form onSubmit={buscarHabitacionesDisponibles} style={{ marginTop: "20px" }}>
+      <form onSubmit={buscarHabitacionesDisponibles}>
         <div>
           <label>Entrada:</label>
           <input

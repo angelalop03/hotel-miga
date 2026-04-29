@@ -9,7 +9,7 @@ export default function FormSala({ onClose, sala, onActualizado }) {
     const [personasMax, setPersonasMax] = useState(sala?.personas_max || "");
     const [precio, setPrecio] = useState(sala?.precio || "");
     const [extrasSeleccionados, setExtrasSeleccionados] = useState(sala?.extras?.map(e => e.id) || []);
-    const { data: extras } = useFetch("http://127.0.0.1:8000/extras/");
+    const { data: extras } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/extras/`);
     const esEdicion = !!sala;
 
     const toggleExtra = (id) => {
@@ -24,8 +24,8 @@ export default function FormSala({ onClose, sala, onActualizado }) {
     e.preventDefault();
 
     const url = esEdicion
-        ? `http://127.0.0.1:8000/salas/${sala.id}/`
-        : "http://127.0.0.1:8000/salas/";
+        ? `${import.meta.env.VITE_BACKEND_URL}/salas/${sala.id}/`
+        : `${import.meta.env.VITE_BACKEND_URL}/salas/`;
 
     const method = esEdicion ? "PUT" : "POST";
 
@@ -111,19 +111,20 @@ export default function FormSala({ onClose, sala, onActualizado }) {
 
             <div>
                 <label>Extras</label>
-                {extras?.map(extra => (
-                    <label key={extra.id} style={{display:"block"}}>
-                    <input
-                        type="checkbox"
-                        checked={extrasSeleccionados.includes(extra.id)}
-                        onChange={() => toggleExtra(extra.id)}
-                    />
-                    {extra.nombre}
-                    </label>
-                ))}
+                <div className="popup-extras">
+                    {extras?.map(extra => (
+                        <label key={extra.id}>
+                        <input
+                            type="checkbox"
+                            checked={extrasSeleccionados.includes(extra.id)}
+                            onChange={() => toggleExtra(extra.id)}
+                        />
+                        {extra.nombre}
+                        </label>
+                    ))}
                 </div>
-
-            <button className="btn-submit" type="submit">
+            </div>
+            <button className="popup-btn" type="submit">
             {esEdicion ? "Guardar cambios" : "Crear sala"}
             </button>
 

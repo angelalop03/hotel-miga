@@ -16,6 +16,7 @@ import AdminSalas from './components/admin/AdminSalas.jsx'
 import AdminExtras from './components/admin/AdminExtras.jsx'
 import HabitacionesDisponibles from "./pages/HabitacionesDisponibles";
 import AdminReservasHabitaciones from './components/admin/AdminReservasHabitaciones.jsx'
+import NotFound from './components/common/NotFound.jsx'
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <h1>404 - Página no encontrada</h1>
+    element: <NotFound />
   }
 ]);
 

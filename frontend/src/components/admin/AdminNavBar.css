@@ -11,29 +11,21 @@ h2 {
 }
 
 .admin-nav button {
-    background-color: #292929;
+    background-color: var(--btn-secundario);
     color: white;
     padding: 0.8rem;
     border-radius: 0.5rem;
     font-size: 1rem;
-    border: 2px solid #b22234;
 }
 
 .admin-nav button:hover {
-    border-color: #292929;
-    background: #b22234;
+    background: var(--btn-primario);
 }
 
 .admin-nav .activo{
-    background-color: #b22234;
+    background-color: var(--btn-primario);
     color: white;
     padding: 0.8rem;
     border-radius: 0.5rem;
     font-size: 1rem;
-    border: 2px solid #292929;
-}
-
-.admin-nav .activo:hover {
-    border-color: #292929;
-    background: #b22234;
 }

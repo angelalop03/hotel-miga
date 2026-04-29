@@ -10,7 +10,7 @@ export default function Login() {
   async function handleLogin(e){
     e.preventDefault()
 
-    const res = await fetch("http://127.0.0.1:8000/api/login/",{
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login/`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

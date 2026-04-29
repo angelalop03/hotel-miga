@@ -4,7 +4,7 @@ import ItemHabitacion from "./ItemHabitacion"
 import FormHabitacion from "./FormHabitacion";
 
 export default function GestionHabitaciones(){
-    const { data:habitaciones, loading, error, refetch } = useFetch("http://127.0.0.1:8000/habitaciones/");
+    const { data:habitaciones, loading, error, refetch } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/habitaciones/`);
     const [habitacionEditando, setHabitacionEditando] = useState(null);
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
     

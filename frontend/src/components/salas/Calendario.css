@@ -1,0 +1,9 @@
+.rdp-day.calendario-completo {
+  background-color: red;
+  color: white;
+}
+
+.rdp-day.calendario-parcial {
+  background-color: yellow;
+  border-radius: 1rem;
+}

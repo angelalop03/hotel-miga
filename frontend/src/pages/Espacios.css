@@ -1,6 +1,6 @@
 .espacios-hero {
   min-height: 100vh;
-  padding: 120px 24px 48px;
+  padding: 1rem;
   background: rgba(0, 0, 0, 0.35);
 }
 
@@ -64,9 +64,22 @@
   padding: 0;
   cursor: pointer;
   text-decoration: underline;
-  margin-right:20px;
+  margin-bottom:20px;
 }
 
+.espacio-btn {
+  width: 100%;
+  border: none;
+  background-color: var(--btn-primario);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 0.9rem;
+  cursor: pointer;
+}
+
+.espacio-btn:hover {
+  background-color: var(--btn-primario-hover);
+}
 .espacio-imageWrap {
   display: flex;
   align-items: center;
@@ -81,21 +94,21 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-
-.popup {
-  position: fixed;
+.message {
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center;   
+  margin-top:200px; 
 }
 
-.popup-content {
+.message-content {
   background: white;
   padding: 20px;
   border-radius: 10px;
+  text-align:center;
 }

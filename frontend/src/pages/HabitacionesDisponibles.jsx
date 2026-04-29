@@ -1,8 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import useFetch from "../hooks/useFetch";
-import "./Espacios.css";
-import "./HabitacionesDisponibles.css";
 
 export default function HabitacionesDisponibles() {
   const [params] = useSearchParams();
@@ -11,7 +9,7 @@ export default function HabitacionesDisponibles() {
   const salida = params.get("salida");
   const personas = params.get("personas");
 
-  const url = `http://127.0.0.1:8000/habitaciones/disponibles/?fecha_entrada=${entrada}&fecha_salida=${salida}&personas=${personas}`;
+  const url = `${import.meta.env.VITE_BACKEND_URL}/habitaciones/disponibles/?fecha_entrada=${entrada}&fecha_salida=${salida}&personas=${personas}`;
 
   const { data, loading, error } = useFetch(url);
 
@@ -62,7 +60,7 @@ export default function HabitacionesDisponibles() {
             Ver detalles
           </button>
           <button
-            className="espacio-link"
+            className="espacio-btn"
             type="button"
             onClick={() => setReservandoHabitacion(habitacion)}
           >
@@ -96,7 +94,7 @@ export default function HabitacionesDisponibles() {
               <p>{habitacionSeleccionada.descripcion || "Sin descripción"}</p>
               <p>Precio: {habitacionSeleccionada.precio ?? "-"} €</p>
 
-              <button type="button" onClick={() => setHabitacionSeleccionada(null)}>
+              <button className="popup-btn" type="button" onClick={() => setHabitacionSeleccionada(null)}>
                 Cerrar
               </button>
             </div>
@@ -114,7 +112,7 @@ export default function HabitacionesDisponibles() {
                 
                 try {
                   const response = await fetch(
-                    "http://127.0.0.1:8000/reservas/habitaciones/",
+                    `${import.meta.env.VITE_BACKEND_URL}/reservas/habitaciones/`,
                     {
                       method: "POST",
                       headers: {
@@ -175,7 +173,7 @@ export default function HabitacionesDisponibles() {
                     required
                   />
                 </div>  
-                <button type="submit">Confirmar reserva</button>
+                <button className="popup-btn" type="submit">Confirmar reserva</button>
               </form>
               <button type="button" onClick={() => setReservandoHabitacion(null)}>
                 Cerrar

@@ -4,7 +4,7 @@ import ItemSala from "./ItemSala"
 import FormSala from "./FormSala";
 
 export default function GestionSalas(){
-    const { data:salas, loading, error, refetch } = useFetch("http://127.0.0.1:8000/salas/");
+    const { data:salas, loading, error, refetch } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/salas/`);
     const [salaEditando, setSalaEditando] = useState(null);
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
     

@@ -2,7 +2,7 @@ import useFetch from "../../../../hooks/useFetch";
 import ItemReservaSala from "./ItemReservaSala";
 
 export default function GestionReservasSalas(){
-    const { data:reservas, loading, error } = useFetch("http://127.0.0.1:8000/reservas/salas/");
+    const { data:reservas, loading, error } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/reservas/salas/`);
     
     return (
         <>

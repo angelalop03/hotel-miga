@@ -6,7 +6,7 @@ export default function ItemSala({sala, onEditar, onActualizado}){
         }
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/salas/${sala.id}/`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/salas/${sala.id}/`, {
                 method: "DELETE"
             });
 

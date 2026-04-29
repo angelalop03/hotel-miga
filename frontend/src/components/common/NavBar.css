@@ -1,5 +1,32 @@
-.mainNav {
+.main-nav {
+    background-color:black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.main-nav h1{
+    font-size: 3rem;
+    margin-bottom: 0.6rem;
     color:white;
     font-family: Georgia, "Times New Roman", serif;
-    background-color:black;
+}
+
+.nav-btn{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.nav-btn button{
+    background-color: #dadada;
+    color: black;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+}
+
+.nav-btn button:hover{
+    background-color: var(--btn-primario);
+    color: white;
 }

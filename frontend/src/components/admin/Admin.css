@@ -8,31 +8,27 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    background: #b22234;
+    background: var(--btn-primario);
     color: white;
-    border: none;
     padding: 10px 18px;
     border-radius: 6px;
-    cursor: pointer;
     font-weight: 600;
 }
 
 .logout-btn:hover {
-    background: #912018;
+    background: var(--btn-primario-hover);
 }
 
 .button-pop-up{
-    border: none;
     border-radius: 6px;
     padding: 9px 14px;
-    background: #296cff;
+    background: var(--btn-formulario);
     color: white;
-    cursor: pointer;
     font-weight: 600;
 }
 
 .button-pop-up:hover {
-    background: #1a47c3;
+    background: var(--btn-formulario-hover);
 }
 
 .admin-container table {
@@ -65,106 +61,26 @@
     background: #f9fafb;
 }
 
-table button{
-    border: none;
+.admin-container table button{
     border-radius: 1rem;
     padding: 0.8rem;
-    cursor: pointer;
     font-weight: 600;
 }
 
-table button:first-child{
+.admin-container table button:first-child{
     margin-right: 0.5rem;
-    background-color: #7fe361;
+    background-color: var(--btn-editar);
 }
 
-table button:first-child:hover{
-    background-color: #57aa3e;
+.admin-container table button:first-child:hover{
+    background-color: var(--btn-editar-hover);
 }
 
-table button:last-child{
-    background-color: #e11d1d;
+.admin-container table button:last-child{
+    background-color: var(--btn-borrar);
     color: white;
 }
 
-table button:last-child:hover{
-    background-color: #ae1818;
+.admin-container table button:last-child:hover{
+    background-color: var(--btn-borrar);
 }
-
-.popup {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #25252573;
-}
-
-.popup-content {
-    width: 80%;
-    max-height: 90vh;
-    overflow-y: scroll;
-    padding: 28px;
-    background: white;
-    border-radius: 1rem;
-}
-
-.popup-content form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.popup-content label {
-    margin-bottom: 6px;
-    font-weight: 600;
-}
-
-.popup-content input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-}
-
-.popup-content input[type="checkbox"] {
-    width: auto;
-    margin-right: 1rem;
-}
-
-.popup-content .btn-submit {
-    width: 100%;
-    border: none;
-    border-radius: 6px;
-    padding: 9px 14px;
-    background: #296cff;
-    color: white;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.popup-content .btn-submit:hover {
-    background: #1a47c3;
-}
-
-button{
-    transition: background-color 0.3s ease;
-}
-
-/* @media (max-width: 768px) {
-    .admin-container {
-        padding: 24px 16px;
-    }
-
-    .logout-btn {
-        position: static;
-        display: block;
-        margin-left: auto;
-        margin-bottom: 20px;
-    }
-
-    .admin-container table {
-        display: block;
-        overflow-x: auto;
-    }
-} */

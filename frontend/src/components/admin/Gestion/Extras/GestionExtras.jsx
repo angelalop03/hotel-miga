@@ -4,7 +4,7 @@ import ItemExtra from "./ItemExtra"
 import FormExtra from "./FormExtra";
 
 export default function GestionExtras(){
-    const { data:extras, loading, error, refetch } = useFetch("http://127.0.0.1:8000/extras/");
+    const { data:extras, loading, error, refetch } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/extras/`);
     const [extraEditando, setExtraEditando] = useState(null);
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
     
