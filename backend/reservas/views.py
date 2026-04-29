@@ -8,6 +8,7 @@ from .serializer import ReservaSalaSerializer, ReservaSalaEstadoSerializer, Rese
 from sala.models import Sala
 from habitacion.models import Habitacion
 from django.shortcuts import get_object_or_404
+from backend.services.email_service import email_confirmacion_sala, email_rechazo_sala, email_confirmacion_habitacion, email_rechazo_habitacion
 
 class ReservaSalaListCreateView(generics.ListCreateAPIView):
     queryset = ReservaSala.objects.select_related("id_sala").all()
@@ -25,8 +26,10 @@ class ReservaSalaEstadoAPIView(APIView):
         serializer = ReservaSalaEstadoSerializer(reserva, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
-            # Mandar correo
-            # reserva.email
+            if request.data.get("estado") == "confirmado":
+                email_confirmacion_sala(reserva.email, reserva.nombre, reserva.id_sala.descripcion, reserva.fecha, reserva.horario)
+            elif request.data.get("estado") == "cancelado":
+                email_rechazo_sala(reserva.email, reserva.nombre, reserva.id_sala.descripcion, reserva.fecha, reserva.horario)
             return Response(ReservaSalaSerializer(reserva).data)
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -63,8 +66,10 @@ class ReservaHabitacionEstadoAPIView(APIView):
         serializer = ReservaHabitacionEstadoSerializer(reserva, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
-            # Mandar correo
-            # reserva.email
+            if request.data.get("estado") == "confirmado":
+                email_confirmacion_habitacion(reserva.email, reserva.nombre, reserva.id_habitacion.descripcion, reserva.fecha_entrada, reserva.fecha_salida)
+            elif request.data.get("estado") == "cancelado":
+                email_rechazo_habitacion(reserva.email, reserva.nombre, reserva.id_habitacion.descripcion, reserva.fecha_entrada, reserva.fecha_salida)
             return Response(ReservaHabitacionSerializer(reserva).data)
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

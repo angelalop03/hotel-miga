@@ -3,3 +3,4 @@ djangorestframework
 python-dotenv
 mysqlclient
 django-cors-headers
+sib-api-v3-sdk==7.6.0

@@ -10,11 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
+
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv(BASE_DIR.parent / ".env")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -128,3 +131,7 @@ STATIC_URL = 'static/'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173"
 ]
+
+BREVO_API_KEY = os.getenv("BREVO_API_KEY")
+BREVO_SENDER_EMAIL = os.getenv("BREVO_SENDER_EMAIL")
+BREVO_SENDER_NAME = os.getenv("BREVO_SENDER_NAME")
