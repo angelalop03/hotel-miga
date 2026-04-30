@@ -33,11 +33,17 @@
 
 .admin-container table {
     width: 100%;
+    
     margin-top: 1rem;
     border-collapse: collapse;
     background: white;
     border-radius: 1rem;
     box-shadow: 0 1rem 2rem #27272714;
+}
+
+.table-container {
+    height: 90vh;
+    overflow-y: auto;
 }
 
 .admin-container th,
@@ -51,6 +57,9 @@
 .admin-container th {
     background: #ffe6e6;
     font-weight: 700;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .admin-container tr:last-child td {

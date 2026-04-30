@@ -63,7 +63,9 @@ export default function FormExtra({ onClose, extra, onActualizado }) {
                         {esEdicion ? "Guardar cambios" : "Crear extra"}
                     </button>
                 </form>
-
+                <button className="popup-btn-cerrar" onClick={onClose}>
+                    Cerrar
+                </button>
             </div>
         </div>
     )

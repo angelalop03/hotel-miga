@@ -94,7 +94,7 @@ export default function HabitacionesDisponibles() {
               <p>{habitacionSeleccionada.descripcion || "Sin descripción"}</p>
               <p>Precio: {habitacionSeleccionada.precio ?? "-"} €</p>
 
-              <button className="popup-btn" type="button" onClick={() => setHabitacionSeleccionada(null)}>
+              <button className="popup-btn-cerrar" type="button" onClick={() => setHabitacionSeleccionada(null)}>
                 Cerrar
               </button>
             </div>
@@ -175,7 +175,7 @@ export default function HabitacionesDisponibles() {
                 </div>  
                 <button className="popup-btn" type="submit">Confirmar reserva</button>
               </form>
-              <button type="button" onClick={() => setReservandoHabitacion(null)}>
+              <button className="popup-btn-cerrar" onClick={() => setReservandoHabitacion(null)}>
                 Cerrar
               </button>
             </div>

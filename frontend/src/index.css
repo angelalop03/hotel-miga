@@ -50,6 +50,7 @@ button{
 }
 
 .popup-content {
+  position: relative;
   width: min(700px, 100%);
   overflow-y: auto;
   background-color: var(--bg-pop-up-card);
@@ -115,6 +116,22 @@ button{
 }
 
 .popup-content .pop-up-btn:hover {
+  background-color: var(--btn-primario-hover);
+}
+
+.popup-content .popup-btn-cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background-color: var(--btn-primario);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 0.9rem;
+  cursor: pointer;
+}
+
+.popup-content .pop-up-btn-cerrar:hover {
   background-color: var(--btn-primario-hover);
 }
 

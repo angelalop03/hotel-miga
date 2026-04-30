@@ -129,6 +129,9 @@ export default function FormSala({ onClose, sala, onActualizado }) {
             </button>
 
         </form>
+        <button className="popup-btn-cerrar" onClick={onClose}>
+            Cerrar
+        </button>
 
         </div>
     </div>

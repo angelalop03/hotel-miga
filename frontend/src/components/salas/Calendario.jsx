@@ -1,6 +1,6 @@
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
-import { useEffect, useState } from "react"
+import { useMemo } from "react"
 import useFetch from "../../hooks/useFetch";
 import { es } from "react-day-picker/locale";
 import SelectHorario from "./SelectHorario";
@@ -8,24 +8,14 @@ import "./Calendario.css";
 import { formatearFechaAYYYYMMDD, formatearFechaADate } from "../../funcionesAuxiliares";
 
 
-export default function Calendario({sala}){
-    const [diaSeleccionado, setdiaSeleccionado] = useState(null);
-    const [parcial, setParcial] = useState([]);
-    const [completo, setCompleto] = useState([]);
-    const [horarioSeleccionado, setHorarioSeleccionado] = useState("");
-    const [horariosOcupados, setHorariosOcupados] = useState([]);
-
+export default function Calendario({sala, diaSeleccionado, setdiaSeleccionado, horarioSeleccionado, setHorarioSeleccionado}){
     const { data, loading, error } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/reservas/salas/ocupado/${sala.id}/`);
 
-    function irFormularioReserva(){
-        console.log(`Sala: ${sala.id} - Dia: ${formatearFechaAYYYYMMDD(diaSeleccionado.toLocaleDateString())} - horario: ${horarioSeleccionado}`)
-        // Crear el componente con el formulario para reservar la sala
-        return
-    }
-
-    useEffect(() => {
+    const { parcial, completo } = useMemo(() => {
         // En la primera ejecucion data esta vacio porque esta esperando al backend
-        if (!Array.isArray(data)) return;
+        if (!Array.isArray(data)) {
+            return { parcial: [], completo: [] };
+        }
 
         // Crear una estructura de datos con cada dia y su numero de reservas
         const contador = {}
@@ -47,35 +37,37 @@ export default function Calendario({sala}){
             }
         }
 
-        setCompleto(auxCompletos);
-        setParcial(auxParciales);
-        console.log(parcial);
+        return { parcial: auxParciales, completo: auxCompletos };
     }, [data])
 
-    useEffect(() => {
+    const horariosOcupados = useMemo(() => {
         // Cuando se cambia el dia seleccionado hay que calcular que horarios estan
         // disponibles lo que modifica el select y desabilita algunas opciones
         let ocupados = []
-        setHorarioSeleccionado("");
-        if(diaSeleccionado){
+        if(diaSeleccionado && Array.isArray(data)){
             data.forEach(item => {
                 if(item.fecha == formatearFechaAYYYYMMDD(diaSeleccionado.toLocaleDateString()))
                     ocupados.push(item.horario);
             }) 
-            setHorariosOcupados(ocupados);   
         }
 
-    }, [diaSeleccionado])
+        return ocupados;
+    }, [diaSeleccionado, data])
+
+    function seleccionarDia(dia) {
+        setdiaSeleccionado(dia);
+        setHorarioSeleccionado("");
+    }
 
     if(loading)
-        return <p>Cargando ...</p>;
+        return <p className="page-loading">Cargando ...</p>;
     if(error)
-        return <p>Error {error}</p>;
+        return <p className="page-error">Error {error}</p>;
 
 
     return (
-        <>
-            <h2>Reservar sala: {sala.nombre_sala}</h2>
+        <div className="container-calendario">
+            
             <DayPicker
                 modifiers = {{
                     completo: completo,
@@ -90,13 +82,11 @@ export default function Calendario({sala}){
                 locale= {es}
                 mode = "single"
                 selected = {diaSeleccionado}
-                onSelect = {setdiaSeleccionado}
+                onSelect = {seleccionarDia}
             />
 
             {<SelectHorario value={horarioSeleccionado} setHorario={setHorarioSeleccionado} horariosOcupados={horariosOcupados}/>}
-            
-            <button onClick={irFormularioReserva} disabled={!horarioSeleccionado}>Reservar</button>
-        </>
+        </div>
     )
 }
        
