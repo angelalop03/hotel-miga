@@ -29,7 +29,7 @@ export default function Habitaciones() {
               <p>{habitacionSeleccionada.descripcion || "Sin descripción"}</p>
               <p>Precio: {habitacionSeleccionada.precio ?? "-"} €</p>
 
-              <button className="popup-btn" type="button" onClick={() => setHabitacionSeleccionada(null)}>
+              <button className="popup-btn-cerrar" type="button" onClick={() => setHabitacionSeleccionada(null)}>
                 Cerrar
               </button>
             </div>

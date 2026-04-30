@@ -129,6 +129,9 @@ export default function FormHabitacion({ onClose, habitacion, onActualizado }) {
             </button>
 
         </form>
+        <button className="popup-btn-cerrar" onClick={onClose}>
+            Cerrar
+        </button>
 
         </div>
     </div>
