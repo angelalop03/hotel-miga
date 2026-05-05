@@ -30,9 +30,27 @@ class HabitacionesDisponiblesAPIView(APIView):
             return Response({"error": "Faltan parámetros"}, status=400)
 
         # Convertimos las fechas a objetos datetime y el numero de personas a int
-        fecha_entrada = datetime.strptime(fecha_entrada, "%Y-%m-%d").date()
-        fecha_salida = datetime.strptime(fecha_salida, "%Y-%m-%d").date()
-        personas = int(personas)
+        try:
+            fecha_entrada = datetime.strptime(fecha_entrada, "%Y-%m-%d").date()
+            fecha_salida = datetime.strptime(fecha_salida, "%Y-%m-%d").date()
+            personas = int(personas)
+        except ValueError:
+            return Response({"error": "Formato de datos inválido"}, status=400)
+        
+        # Validaciones igual que en el front
+        hoy = date.today()
+
+        if fecha_entrada < hoy:
+            return Response(
+                {"error": "La fecha de entrada no puede ser anterior a hoy"},
+                status=400
+            )
+
+        if fecha_salida <= fecha_entrada:
+            return Response(
+                {"error": "La fecha de salida debe ser posterior a la de entrada"},
+                status=400
+            )
 
         # Reservas que se solapan 
         #   Fecha de entrada de la reserva es anterior a la fecha de salida del rango solicitado

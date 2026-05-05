@@ -17,6 +17,17 @@ export default function Home() {
       return;
     }
 
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+
+    const fechaEntrada = new Date(entrada);
+    fechaEntrada.setHours(0, 0, 0, 0);
+
+    if (fechaEntrada < hoy) {
+      alert("La fecha de entrada no puede ser anterior a hoy.");
+      return;
+    }
+
     if (new Date(salida) <= new Date(entrada)) {
       alert("La fecha de salida debe ser posterior a la de entrada.");
       return;
