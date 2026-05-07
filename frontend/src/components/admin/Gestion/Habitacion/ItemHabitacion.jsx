@@ -7,7 +7,10 @@ export default function ItemHabitacion({habitacion, onEditar, onActualizado}){
 
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/habitaciones/${habitacion.num_habitacion}/`, {
-                method: "DELETE"
+                method: "DELETE",
+                headers: {
+                    "Authorization": `Token ${localStorage.getItem("token")}`
+                }
             });
 
             if (!response.ok) {

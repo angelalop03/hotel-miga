@@ -9,7 +9,8 @@ export default function ButtonReservarHabitacion({id_reserva, estadoOriginal}){
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/reservas/habitaciones/estado/${id_reserva}/`, {
                 method: "PATCH",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Token ${localStorage.getItem("token")}`
                 },
                 body: JSON.stringify({ estado: nuevoEstado })
             });

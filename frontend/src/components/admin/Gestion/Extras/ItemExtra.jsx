@@ -7,7 +7,10 @@ export default function ItemExtra({extra, onEditar, onActualizado}){
 
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/extras/${extra.id}/`, {
-                method: "DELETE"
+                method: "DELETE",
+                headers: {
+                    "Authorization": `Token ${localStorage.getItem("token")}`
+                }
             });
 
             if (!response.ok) {

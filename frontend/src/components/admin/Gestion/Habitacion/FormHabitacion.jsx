@@ -33,7 +33,8 @@ export default function FormHabitacion({ onClose, habitacion, onActualizado }) {
         const response = await fetch(url, {
         method: method,
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("token")}`
         },
         body: JSON.stringify({
             num_habitacion: numHabitacion,

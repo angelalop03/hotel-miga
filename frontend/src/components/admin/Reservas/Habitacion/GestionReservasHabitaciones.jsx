@@ -1,8 +1,8 @@
-import useFetch from "../../../../hooks/useFetch";
+import useFetchAutenticado from "../../../../hooks/useFetchAutenticado";
 import ItemReservaHabitacion from "./ItemReservaHabitacion";
 
 export default function GestionReservasHabitaciones(){
-    const { data:reservas, loading, error } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/reservas/habitaciones/`);
+    const { data:reservas, loading, error } = useFetchAutenticado(`${import.meta.env.VITE_BACKEND_URL}/reservas/habitaciones/`);
     
     return (
         <>

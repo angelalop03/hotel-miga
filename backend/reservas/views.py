@@ -9,15 +9,25 @@ from sala.models import Sala
 from habitacion.models import Habitacion
 from django.shortcuts import get_object_or_404
 from backend.services.email_service import email_confirmacion_sala, email_rechazo_sala, email_confirmacion_habitacion, email_rechazo_habitacion
+from rest_framework.permissions import IsAuthenticated
 
 class ReservaSalaListCreateView(generics.ListCreateAPIView):
     queryset = ReservaSala.objects.select_related("id_sala").all()
     serializer_class = ReservaSalaSerializer
+    # Solo autenticado pueden ver y todos pueden crear
+    def get_permissions(self):
+        if self.request.method == 'POST':
+            return []
+        return [IsAuthenticated()]
 
 # Endpoint que modifica el estado de la reserva de una sala mediante su id
 # y manda un correo al cliente
 class ReservaSalaEstadoAPIView(APIView):
     def patch(self, request, id):
+        # Solo los autenticados pueden modificar el estado de una reserva
+        if not request.user.is_authenticated:
+            return Response({'error': 'No tienes permiso para realizar esta acción'}, status=status.HTTP_403_FORBIDDEN)
+
         reserva = ReservaSala.objects.get(id = id)
 
         if not reserva:
@@ -45,6 +55,7 @@ class ReservaSalaOcupadoAPIView(APIView):
         # Obtener el dia actual
         today = date.today()
 
+        # Solo devolver las reservas futuras
         reservas = ReservaSala.objects.filter(id_sala = sala, estado = "confirmado", fecha__gte = today)
         serializer = ReservaSalaOcupadoSerializer(reservas, many=True)
         
@@ -53,11 +64,20 @@ class ReservaSalaOcupadoAPIView(APIView):
 class ReservaHabitacionListCreateView(generics.ListCreateAPIView):
     queryset = ReservaHabitacion.objects.select_related("id_habitacion").all()
     serializer_class = ReservaHabitacionSerializer
+    # Solo autenticado pueden ver y todos pueden crear
+    def get_permissions(self):
+        if self.request.method == 'POST':
+            return []
+        return [IsAuthenticated()]
 
 # Endpoint que modifica el estado de la reserva de una habitacion mediante su id
 # y manda un correo al cliente
 class ReservaHabitacionEstadoAPIView(APIView):
     def patch(self, request, id):
+        # Solo los autenticados pueden modificar el estado de una reserva
+        if not request.user.is_authenticated:
+            return Response({'error': 'No tienes permiso para realizar esta acción'}, status=status.HTTP_403_FORBIDDEN)
+        
         reserva = ReservaHabitacion.objects.get(id = id)
 
         if not reserva:

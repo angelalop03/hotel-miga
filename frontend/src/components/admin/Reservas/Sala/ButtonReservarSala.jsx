@@ -9,7 +9,8 @@ export default function ButtonReservarSala({id_reserva, estadoOriginal}){
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/reservas/salas/estado/${id_reserva}/`, {
                 method: "PATCH",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Token ${localStorage.getItem("token")}`
                 },
                 body: JSON.stringify({ estado: nuevoEstado })
             });

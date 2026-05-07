@@ -7,7 +7,10 @@ export default function ItemSala({sala, onEditar, onActualizado}){
 
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/salas/${sala.id}/`, {
-                method: "DELETE"
+                method: "DELETE",
+                headers: {                    
+                    "Authorization": `Token ${localStorage.getItem("token")}`
+                }
             });
 
             if (!response.ok) {

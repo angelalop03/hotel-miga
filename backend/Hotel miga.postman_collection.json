@@ -1,10 +1,10 @@
 {
   "info": {
-    "_postman_id": "2d81fd5a-30fe-4459-800c-74d40d57a08d",
+    "_postman_id": "79080638-3af7-4b5e-ba30-ace197786ff7",
     "name": "Hotel miga",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "4630709",
-    "_collection_link": "https://go.postman.co/collection/4630709-2d81fd5a-30fe-4459-800c-74d40d57a08d?source=collection_link"
+    "_exporter_id": "50176382",
+    "_collection_link": "https://go.postman.co/collection/50176382-79080638-3af7-4b5e-ba30-ace197786ff7?source=collection_link"
   },
   "item": [
     {
@@ -67,7 +67,13 @@
           "name": "POST",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token 53acea6b0bd1ac162d2fac88edd4ef482b314af1",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "/* {\r\n    \"nombre\": \"wi-fi\"\r\n} */\r\n/* {\r\n    \"nombre\": \"Televisión\"\r\n} */\r\n{\r\n    \"nombre\": \"Altavoces\"\r\n}",
@@ -99,7 +105,13 @@
           "name": "PUT",
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token 53acea6b0bd1ac162d2fac88edd4ef482b314af1",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"nombre\": \"wifi\"\r\n}",
@@ -138,7 +150,13 @@
           "name": "DELETE",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token 53acea6b0bd1ac162d2fac88edd4ef482b314af1",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://127.0.0.1:8000/extras/:id/",
               "protocol": "http",
@@ -157,7 +175,7 @@
               "variable": [
                 {
                   "key": "id",
-                  "value": "4"
+                  "value": "9"
                 }
               ]
             }
@@ -226,10 +244,16 @@
           "name": "POST",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token 53acea6b0bd1ac162d2fac88edd4ef482b314af1",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
-              "raw": "/* {\r\n    \"num_habitacion\": 101,\r\n    \"precio\": 39.99,\r\n    \"num_personas\": 1,\r\n    \"descripcion\": \"Fabulosa habitación con vistas al mar\",\r\n    \"extras_ids\": [1,2]\r\n} */\r\n{\r\n    \"num_habitacion\": 102,\r\n    \"precio\": 75.00,\r\n    \"num_personas\": 2,\r\n    \"descripcion\": \"Otra fabulosa habitación con vistas al mar\",\r\n    \"extras_ids\": [1]\r\n}\r\n",
+              "raw": "/* {\r\n    \"num_habitacion\": 101,\r\n    \"precio\": 39.99,\r\n    \"num_personas\": 1,\r\n    \"descripcion\": \"Fabulosa habitación con vistas al mar\",\r\n    \"extras_ids\": [1,2]\r\n} */\r\n{\r\n    \"num_habitacion\": 104,\r\n    \"precio\": 85.00,\r\n    \"num_personas\": 2,\r\n    \"descripcion\": \"Otra fabulosa habitación con vistas al mar\",\r\n    \"extras_ids\": [1]\r\n}\r\n",
               "options": {
                 "raw": {
                   "language": "json"
@@ -258,7 +282,13 @@
           "name": "PATCH",
           "request": {
             "method": "PATCH",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token 53acea6b0bd1ac162d2fac88edd4ef482b314af1",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"extras_ids\": [1, 2]\r\n}",
@@ -297,7 +327,13 @@
           "name": "DELETE",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token 53acea6b0bd1ac162d2fac88edd4ef482b314af1",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://127.0.0.1:8000/habitaciones/:num_habitacion/",
               "protocol": "http",
@@ -316,7 +352,7 @@
               "variable": [
                 {
                   "key": "num_habitacion",
-                  "value": "101"
+                  "value": "104"
                 }
               ]
             }
@@ -327,7 +363,10 @@
           "name": "Búsqueda de habitaciones disponibles",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": ""
+            }
           },
           "response": []
         }
@@ -382,7 +421,7 @@
               "variable": [
                 {
                   "key": "id",
-                  "value": "1"
+                  "value": "2"
                 }
               ]
             }
@@ -393,10 +432,16 @@
           "name": "POST",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token 53acea6b0bd1ac162d2fac88edd4ef482b314af1",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
-              "raw": "/* {\r\n    \"nombre_sala\": \"Salón principal\",\r\n    \"precio\": 300.00,\r\n    \"personas_max\": 50,\r\n    \"descripcion\": \"Gran salón para cualquier tipo de evento.\",\r\n    \"extras_ids\": [1]\r\n} */\r\n{\r\n    \"nombre_sala\": \"Piscina\",\r\n    \"precio\": 50.00,\r\n    \"personas_max\": 20,\r\n    \"descripcion\": \"Piscina muy bonita\",\r\n    \"extras_ids\": [1]\r\n}",
+              "raw": "/* {\r\n    \"nombre_sala\": \"Salón principal\",\r\n    \"precio\": 300.00,\r\n    \"personas_max\": 50,\r\n    \"descripcion\": \"Gran salón para cualquier tipo de evento.\",\r\n    \"extras_ids\": [1]\r\n} */\r\n{\r\n    \"nombre_sala\": \"Piscina2\",\r\n    \"precio\": 50.00,\r\n    \"personas_max\": 20,\r\n    \"descripcion\": \"Piscina muy bonita\",\r\n    \"extras_ids\": [1]\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -425,7 +470,13 @@
           "name": "PATCH",
           "request": {
             "method": "PATCH",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token 53acea6b0bd1ac162d2fac88edd4ef482b314af1",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"extras_ids\": [1, 2]\r\n}",
@@ -464,7 +515,13 @@
           "name": "DELETE",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token 53acea6b0bd1ac162d2fac88edd4ef482b314af1",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://127.0.0.1:8000/salas/:id/",
               "protocol": "http",
@@ -483,7 +540,7 @@
               "variable": [
                 {
                   "key": "id",
-                  "value": "2"
+                  "value": "6"
                 }
               ]
             }
@@ -502,7 +559,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Token 53acea6b0bd1ac162d2fac88edd4ef482b314af1",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://127.0.0.1:8000/reservas/salas/",
                   "protocol": "http",
@@ -547,7 +610,7 @@
                   "variable": [
                     {
                       "key": "id_sala",
-                      "value": "2"
+                      "value": "3"
                     }
                   ]
                 }
@@ -591,7 +654,13 @@
               "name": "confirmar",
               "request": {
                 "method": "PATCH",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Token 53acea6b0bd1ac162d2fac88edd4ef482b314af1",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\r\n    \"estado\": \"confirmado\"\r\n}",
@@ -637,7 +706,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Token 53acea6b0bd1ac162d2fac88edd4ef482b314af1",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://127.0.0.1:8000/reservas/habitaciones/",
                   "protocol": "http",
@@ -661,15 +736,21 @@
               "name": "get ocupación by id_habitacion",
               "request": {
                 "method": "GET",
-                "header": []
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
               },
               "response": []
             },
             {
               "name": "post",
               "request": {
-                "method": "GET",
-                "header": []
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
               },
               "response": []
             },
@@ -677,7 +758,13 @@
               "name": "confirmar",
               "request": {
                 "method": "PATCH",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Token 53acea6b0bd1ac162d2fac88edd4ef482b314af1",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\r\n    \"estado\": \"confirmado\"\r\n}",
@@ -717,6 +804,38 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Auth",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"recepcionista\",\r\n    \"password\": \"1234\"    \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/auth/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "auth",
+            ""
+          ]
+        }
+      },
+      "response": []
     }
   ],
   "variable": [

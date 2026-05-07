@@ -10,10 +10,13 @@ from .serializer import HabitacionSerializer
 from habitacion.models import Habitacion
 from reservas.models import ReservaHabitacion
 from habitacion.serializer import HabitacionSerializer
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+
 class HabitacionViewSet(viewsets.ModelViewSet):
     queryset = Habitacion.objects.prefetch_related("extras").all()
     serializer_class = HabitacionSerializer
     lookup_field = 'num_habitacion'
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 # Endpoint para obtener las habitaciones disponibles en un rango de fechas y para un numero de personas
 class HabitacionesDisponiblesAPIView(APIView):

@@ -1,4 +1,4 @@
-import useFetch from "../../../../hooks/useFetch";
+
 import { useState } from "react";
 
 export default function FormExtra({ onClose, extra, onActualizado }) {
@@ -21,7 +21,8 @@ export default function FormExtra({ onClose, extra, onActualizado }) {
         const response = await fetch(url, {
         method: method,
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("token")}`
         },
         body: JSON.stringify({
             id: idExtra,

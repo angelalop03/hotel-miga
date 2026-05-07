@@ -5,9 +5,9 @@ import AdminNavBar from "./AdminNavBar"
 export default function Admin() {
 
   function logout(){
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logout/`,{
-      method:"POST"
-    })
+    // Eliminar el token del localStorage
+    localStorage.removeItem("token");
+
     window.location="/login"
   }
 

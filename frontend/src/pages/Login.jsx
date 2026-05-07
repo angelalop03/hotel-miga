@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Login.css"
 
 export default function Login() {
 
@@ -10,7 +11,7 @@ export default function Login() {
   async function handleLogin(e){
     e.preventDefault()
 
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login/`,{
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -21,10 +22,14 @@ export default function Login() {
       })
     })
 
-    if(res.ok){
-      navigate("/admin")
-    }else{
-      alert("Login incorrecto")
+    const result = await res.json();
+
+    // Guardar el token en el localStorage
+    if (result.token) {
+      localStorage.setItem("token", result.token);
+      navigate("/admin");
+    } else {
+      alert("Login incorrecto");
     }
   }
 
@@ -34,13 +39,14 @@ export default function Login() {
       <h2>LOGIN</h2>
 
       <form onSubmit={handleLogin}>
-
+        <label>Nombre de usuario:</label>
         <input
           placeholder="username"
           value={username}
           onChange={(e)=>setUsername(e.target.value)}
         />
 
+        <label>Contraseña:</label>
         <input
           type="password"
           placeholder="password"
@@ -49,7 +55,7 @@ export default function Login() {
         />
 
         <button type="submit">
-          Confirmar
+          Acceder
         </button>
 
       </form>

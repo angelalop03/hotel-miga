@@ -1,8 +1,8 @@
-import useFetch from "../../../../hooks/useFetch";
+import useFetchAutenticado from "../../../../hooks/useFetchAutenticado";
 import ItemReservaSala from "./ItemReservaSala";
 
 export default function GestionReservasSalas(){
-    const { data:reservas, loading, error } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/reservas/salas/`);
+    const { data:reservas, loading, error } = useFetchAutenticado(`${import.meta.env.VITE_BACKEND_URL}/reservas/salas/`);
     
     return (
         <>
