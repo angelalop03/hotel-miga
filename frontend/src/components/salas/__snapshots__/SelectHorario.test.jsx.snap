@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SelectHorario > muestra los horarios disponibles y deshabilita los ocupados 1`] = `
+<DocumentFragment>
+  <select
+    id="select-horarios"
+    name="select-horarios"
+  >
+    <option
+      value=""
+    >
+      Selecciona un horario disponible
+    </option>
+    <option
+      value="mañana"
+    >
+      Mañana
+    </option>
+    <option
+      disabled=""
+      value="mediodia"
+    >
+      Mediodía
+    </option>
+    <option
+      value="noche"
+    >
+      Noche
+    </option>
+  </select>
+</DocumentFragment>
+`;
